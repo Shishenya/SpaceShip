@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameShip: Enemy Type 1
   prefabShip: {fileID: 6060015480402931881, guid: f1c49c729e0b370439d1b6dc1746c901, type: 3}
-  speedShip: 10
-  startHealth: 5
+  speedShip: 3
+  startHealth: 15

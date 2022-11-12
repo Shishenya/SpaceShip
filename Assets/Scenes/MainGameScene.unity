@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 714790114}
   - component: {fileID: 714790113}
   - component: {fileID: 714790112}
+  - component: {fileID: 714790115}
   m_Layer: 13
   m_Name: MainGameTilemap
   m_TagString: Untagged
@@ -1902,6 +1903,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &714790115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714790108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c6da8a17dcf2442bc151bade5b0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &889623471
 GameObject:
   m_ObjectHideFlags: 0
