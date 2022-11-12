@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5401e5b8bef338545b6230c5a2a54ed7, type: 3}
+  m_Name: ShipDetails_PlayerShip_Type1
+  m_EditorClassIdentifier: 
+  nameShip: Energy
+  prefabShip: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+  speedShip: 6

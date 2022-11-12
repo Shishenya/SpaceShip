@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaaa2b39803aa94da51708d14ca0478, type: 3}
+  m_Name: AmmoDetails_BulletBlue1
+  m_EditorClassIdentifier: 
+  ammoName: Basic Ammo
+  ammoPrefab: {fileID: 3194720303556269338, guid: 6e7fa574d43d99c40932f157ed33ab78, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 83e2d2123f8b5c94a860eb8e1423c959, type: 3}
+  minAmmoDamage: 6
+  maxAmmoDagame: 6
+  minAmmoSpeed: 5
+  maxAmmoSpeed: 6
