@@ -46,7 +46,7 @@ public class FireWeapon : MonoBehaviour
         if (!_ship.weapon.ReadyShoot) return;
 
         // нет снарядов
-        if (_ship.weapon.CurrentAmountAmmo <= 0) return;
+        if (_ship.weapon.CurrentAmountAmmo <= 0 && !weaponDetails.isInfinityClip) return;
 
         #endregion
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponDetails_PlayerType2
   m_EditorClassIdentifier: 
   nameWeapon: Weapon Type 2
-  ammoDetailsThisWeapon: {fileID: 11400000, guid: 9664e5a9bef9f8b47b150b7a3f6ac08e, type: 2}
+  ammoDetailsThisWeapon: {fileID: 11400000, guid: fb678dca398cb9b4e898d20317823252, type: 2}
   isInfinityClip: 0
   reloadTimeWeapon: 0.4
   currentBulletInShip: 0

@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: -5705395254633852873}
   - component: {fileID: 3108648517713916764}
   - component: {fileID: -6271051904084836032}
+  - component: {fileID: 421919524009260530}
   m_Layer: 7
   m_Name: PlayerSpaceShip
   m_TagString: Untagged
@@ -262,7 +263,8 @@ MonoBehaviour:
   fireWeaponEvent: {fileID: 0}
   weapon: {fileID: 0}
   health: {fileID: 0}
-  weaponDetails: {fileID: 11400000, guid: d159999248fb48544954d0d2080d96b0, type: 2}
+  changeHealthEvent: {fileID: 0}
+  weaponDetails: {fileID: 11400000, guid: 35c5a257eaaf2b14b9ed0a2dc5dcab12, type: 2}
 --- !u!114 &6743109133526775864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632315ea4881ee44b9b6613fcb79b141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHealth: 0
 --- !u!114 &-6271051904084836032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,5 +361,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66dbf77c612eb14183813bf0093d0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &421919524009260530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627947601231763847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfdb44ae959d1343ad7b763d1c7c22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b8eb9bdc44ecc4080e96c7d8b0e655, type: 3}
-  m_Name: WeaponDetails_PlayerType1
+  m_Name: WeaponDetails_EnemyType1
   m_EditorClassIdentifier: 
-  nameWeapon: Default Weapon by Player
-  ammoDetailsThisWeapon: {fileID: 11400000, guid: fb678dca398cb9b4e898d20317823252, type: 2}
+  nameWeapon: Default Weapon by Enemy
+  ammoDetailsThisWeapon: {fileID: 11400000, guid: 9664e5a9bef9f8b47b150b7a3f6ac08e, type: 2}
   isInfinityClip: 1
-  reloadTimeWeapon: 1
+  reloadTimeWeapon: 2
   currentBulletInShip: 0
   maxBulletInShip: 0

@@ -300,6 +300,8 @@ MonoBehaviour:
     prefabPool: {fileID: 3194720303556269338, guid: 6e7fa574d43d99c40932f157ed33ab78, type: 3}
   - sizePool: 10
     prefabPool: {fileID: 6060015480402931881, guid: f1c49c729e0b370439d1b6dc1746c901, type: 3}
+  - sizePool: 50
+    prefabPool: {fileID: 1121257760235857612, guid: cd32b0e7b085ec54497de95b3e552226, type: 3}
   testPrefab: {fileID: 6060015480402931881, guid: f1c49c729e0b370439d1b6dc1746c901, type: 3}
 --- !u!4 &461721810
 Transform:

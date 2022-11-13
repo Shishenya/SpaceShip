@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88d914810930947b2e6d3cf25e63e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1655049408696017213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060015480402931881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303d8e2d836f4f6458dc190d61650fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7246926896371044832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,6 +47,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0edf48694a751e046b550b3021dac791, type: 3}
+    - target: {fileID: 2111054486759227322, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: weaponDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 830154888c5fc3e45beb43bcd264c6a3, type: 2}
     - target: {fileID: 2111054486759227322, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
       propertyPath: _currentShipDetails
       value: 
