@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: -6271051904084836032}
   - component: {fileID: 421919524009260530}
   - component: {fileID: -7598951736664642697}
+  - component: {fileID: -2635236887643123163}
   m_Layer: 7
   m_Name: PlayerSpaceShip
   m_TagString: Untagged
@@ -265,6 +266,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   health: {fileID: 0}
   changeHealthEvent: {fileID: 0}
+  deathEvent: {fileID: 0}
   weaponDetails: {fileID: 11400000, guid: 35c5a257eaaf2b14b9ed0a2dc5dcab12, type: 2}
 --- !u!114 &6743109133526775864
 MonoBehaviour:
@@ -386,5 +388,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0d9df71984ce8249a0465adb2763e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2635236887643123163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627947601231763847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c018999231437b040ba95fc00681df44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

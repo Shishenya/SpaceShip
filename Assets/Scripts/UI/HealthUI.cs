@@ -36,7 +36,7 @@ public class HealthUI : MonoBehaviour
     private void InitHealthUI()
     {
         string healthText;
-        healthText = "Current Health :" + _currentHealth;
+        healthText = "Current Health: " + _currentHealth;
         healthTMP.text = healthText;
     }
 

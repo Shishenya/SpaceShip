@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameLevel: Dark purple Planet
   backgroundLevel: {fileID: 21300000, guid: 969d0cff79bbb9e4681213c22b6bd026, type: 3}
+  amountEnemyInLevel: 8
+  maxEnemyConcurent: 4
+  intervalEnemySpawner: 2

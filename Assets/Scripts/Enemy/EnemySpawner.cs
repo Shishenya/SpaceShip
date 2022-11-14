@@ -15,14 +15,17 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private float _startTimerSpawn;
     private bool _readySpawn = true;
 
+    public int CurrentEnemyInScene { get { return _currentEnemyInScene;  } }
+
 
     [SerializeField] private GameObject _testEnemyPrefab = null;
 
-    private void Start()
+    protected override void Awake()
     {
-        _levelDetailsSO = GameManager.Instance.currentLevel;
-        _startTimerSpawn = _levelDetailsSO.intervalEnemySpawner;
-        _timerSpawn = _startTimerSpawn;
+
+        base.Awake();
+
+        ResetLevel();
     }
 
     private void Update()
@@ -36,11 +39,15 @@ public class EnemySpawner : Singleton<EnemySpawner>
                 _timerSpawn = _startTimerSpawn;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.O))
+        else
         {
             Spawn(_testEnemyPrefab);
         }
+
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    Spawn(_testEnemyPrefab);
+        //}
 
     }
 
@@ -73,7 +80,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         GameObject goSpawn = PoolManager.Instance.GetFromThePool(_testEnemyPrefab); // достаем объейкт из пула
 
         // Test
-        Vector3 randomVector3 = new Vector3(10f, Random.Range(-5f, 5f),0f);
+        Vector3 randomVector3 = new Vector3(10f, Random.Range(-5f, 5f), 0f);
         goSpawn.transform.position = randomVector3;
         goSpawn.SetActive(true);
 
@@ -90,10 +97,13 @@ public class EnemySpawner : Singleton<EnemySpawner>
     /// <summary>
     /// Сброс счетчиков
     /// </summary>
-    private void ResetCount()
+    public void ResetLevel()
     {
-        _currentEnemyInScene = 0;
-        _amountEnemySpawn = 0;
+        _levelDetailsSO = GameManager.Instance.currentLevel; // берем уровень
+        _startTimerSpawn = _levelDetailsSO.intervalEnemySpawner; // устанавливаем стартовое время
+        _timerSpawn = _startTimerSpawn; // устаналиваем атймер спавна
+        _currentEnemyInScene = 0; // на сцене противников 0
+        _amountEnemySpawn = 0; // всего заспавнилось 0
     }
 
     /// <summary>
@@ -103,6 +113,15 @@ public class EnemySpawner : Singleton<EnemySpawner>
     {
         _currentEnemyInScene--;
         if (_currentEnemyInScene <= 0) _currentEnemyInScene = 0;
+    }
+
+    /// <summary>
+    /// Возвращает число врагов, которое еще должно заспавниться
+    /// </summary>
+    /// <returns></returns>
+    public int GetRemainsToSpawnEnemy()
+    {
+        return _levelDetailsSO.amountEnemyInLevel - _amountEnemySpawn;
     }
 
 }

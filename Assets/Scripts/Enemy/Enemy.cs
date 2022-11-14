@@ -38,12 +38,20 @@ public class Enemy : MonoBehaviour
         _enemyShip.health.GetStartHealth();
 
         // Увеличиваем количество очков для игрока
+        GameManager.Instance.GameScore = 10;
+        GameManager.Instance.playerScoreUI.UpdateScore();
 
         // Изменяем спавн
         EnemySpawner.Instance.DecrementEnemyInScene();
 
         // Деактивируем
         _enemyShip.gameObject.SetActive(false);
+
+        // Проверяем, если он был последним врагом на сцене, то выгирываем уровень
+        if (EnemySpawner.Instance.GetRemainsToSpawnEnemy()<=0 && EnemySpawner.Instance.CurrentEnemyInScene==0)
+        {
+            GameManager.Instance.GameNextLevel();
+        }
     }
 
 }
