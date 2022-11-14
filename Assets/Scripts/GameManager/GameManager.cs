@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -15,6 +17,10 @@ public class GameManager : Singleton<GameManager>
     private GameObject _playerShip = null; // Корабль игрока
 
     public PlayerScoreUI playerScoreUI;
+    [SerializeField] private SpriteRenderer background;
+
+    [SerializeField] private CanvasGroup canvasFade;
+    private string _textFade;
 
     [SerializeField] private List<LevelDetailsSO> levelDetailsList; // Список уровней
     public int currentLevelIndex = 0;
@@ -42,6 +48,11 @@ public class GameManager : Singleton<GameManager>
         InitialiseLevel(currentLevelIndex);
     }
 
+    private void Start()
+    {
+        // StartCoroutine(Fade(1f, 0f, 2f, Color.black, _textFade));
+    }
+
     /// <summary>
     /// Метод создание корабля игрока
     /// </summary>
@@ -65,6 +76,9 @@ public class GameManager : Singleton<GameManager>
     private void InitialiseLevel(int currentLevelIndex)
     {
         currentLevel = levelDetailsList[currentLevelIndex];
+        background.sprite = levelDetailsList[currentLevelIndex].backgroundLevel; // обнвляем бекграунд
+        _textFade = "Уровень " + (currentLevelIndex+1).ToString() + "\n " + levelDetailsList[currentLevelIndex].nameLevel;
+        StartCoroutine(Fade(1f, 0f, 2f, Color.black, _textFade));
     }
 
     /// <summary>
@@ -113,6 +127,28 @@ public class GameManager : Singleton<GameManager>
             EnemySpawner.Instance.ResetLevel(); // Устанавливаем нвоый уровень
             playerScoreUI.UpdateScore(); // обновляем UI 
         }
+    }
+
+    /// <summary>
+    /// Затухание экрана и его появление
+    /// </summary>
+    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor, string textFade)
+    {
+
+        Image image = canvasFade.GetComponent<Image>();
+        image.color = backgroundColor;
+        TextMeshProUGUI textTMP = canvasFade.GetComponentInChildren<TextMeshProUGUI>();
+        textTMP.text = textFade;
+
+        float time = 0;
+
+        while (time <= fadeSeconds)
+        {
+            time += Time.deltaTime;
+            canvasFade.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
+            yield return null;
+        }
+
     }
 
 }

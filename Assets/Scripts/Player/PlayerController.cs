@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Ship _ship;
+    private bool _isEnabledController = false;
 
     private void Awake()
     {
@@ -48,6 +49,22 @@ public class PlayerController : MonoBehaviour
         {
             _ship.fireWeaponEvent.CallOnFireWeaponEvent(_ship.weaponDetails, Vector2.one);
         }
+    }
+
+    /// <summary>
+    /// Включает управление игрока
+    /// </summary>
+    public void EnablePLayerContoller()
+    {
+        _isEnabledController = true;
+    }
+
+    /// <summary>
+    /// Отключает управление игрока
+    /// </summary>
+    public void DisablePLayerContoller()
+    {
+        _isEnabledController = false;
     }
 
 }

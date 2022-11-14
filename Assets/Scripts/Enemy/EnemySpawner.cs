@@ -15,7 +15,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private float _startTimerSpawn;
     private bool _readySpawn = true;
 
-    public int CurrentEnemyInScene { get { return _currentEnemyInScene;  } }
+    public int CurrentEnemyInScene { get { return _currentEnemyInScene; } }
 
 
     [SerializeField] private GameObject _testEnemyPrefab = null;
@@ -56,7 +56,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
     /// </summary>
     private void Spawn(GameObject _testEnemyPrefab)
     {
-        Debug.Log("Начинаю пул!");
 
         // Валидация на текущее количество заспавненных противников
 
@@ -72,22 +71,22 @@ public class EnemySpawner : Singleton<EnemySpawner>
         Debug.Log("Готов к спавну!");
 
         // если нет, то спавник корабль и прибавляем счетчики
-        _amountEnemySpawn++;
-        _currentEnemyInScene++;
-
-        Debug.Log("Теперь показатели такие;  Всего заспавнлось " + _amountEnemySpawn + "; на сцене сейчас " + _currentEnemyInScene);
 
         GameObject goSpawn = PoolManager.Instance.GetFromThePool(_testEnemyPrefab); // достаем объейкт из пула
+        if (goSpawn != null)
+        {
+            _amountEnemySpawn++;
+            _currentEnemyInScene++;
 
-        // Test
-        Vector3 randomVector3 = new Vector3(10f, Random.Range(-5f, 5f), 0f);
-        goSpawn.transform.position = randomVector3;
-        goSpawn.SetActive(true);
+            Vector3 randomVector3 = new Vector3(10f, Random.Range(-5f, 5f), 0f);
+            goSpawn.transform.position = randomVector3;
+            goSpawn.SetActive(true);
 
-        // Устанавливаем детали корабля
-        Ship enemyShip = goSpawn.GetComponent<Ship>();
-        enemyShip.InitShip(enemyShipDetails);
-
+            // Устанавливаем детали корабля
+            Ship enemyShip = goSpawn.GetComponent<Ship>();
+            if (enemyShip!=null) 
+                enemyShip.InitShip(enemyShipDetails);
+        }
 
         _timerSpawn = _startTimerSpawn; // устанавливаем таймер спавна в начальное значение
         _readySpawn = false; // Ставим заглушку на спавн
