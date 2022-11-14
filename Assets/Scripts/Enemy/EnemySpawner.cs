@@ -96,4 +96,13 @@ public class EnemySpawner : Singleton<EnemySpawner>
         _amountEnemySpawn = 0;
     }
 
+    /// <summary>
+    /// Уменьшение текущего количество врагов на сцене на одного при его уничтожении
+    /// </summary>
+    public void DecrementEnemyInScene()
+    {
+        _currentEnemyInScene--;
+        if (_currentEnemyInScene <= 0) _currentEnemyInScene = 0;
+    }
+
 }

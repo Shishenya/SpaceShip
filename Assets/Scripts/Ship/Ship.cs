@@ -15,6 +15,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(ChangeHealthEvent))]
+[RequireComponent(typeof(DeathEvent))]
 #endregion
 [DisallowMultipleComponent]
 public class Ship : MonoBehaviour
@@ -33,6 +34,7 @@ public class Ship : MonoBehaviour
     [HideInInspector] public Weapon weapon;
     [HideInInspector] public Health health;
     [HideInInspector] public ChangeHealthEvent changeHealthEvent;
+    [HideInInspector] public DeathEvent deathEvent;
 
     // Weapon Details test
     public WeaponDetailsSO weaponDetails;
@@ -46,6 +48,7 @@ public class Ship : MonoBehaviour
         weapon = GetComponent<Weapon>();
         health = GetComponent<Health>();
         changeHealthEvent = GetComponent<ChangeHealthEvent>();
+        deathEvent = GetComponent<DeathEvent>();
     }
 
     public void InitShip(ShipDetailsSO shipDetails)

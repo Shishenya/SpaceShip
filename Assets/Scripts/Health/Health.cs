@@ -26,10 +26,13 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _ship = GetComponent<Ship>();
-        InitHealth();
+        GetStartHealth();
     }
 
-    private void InitHealth()
+    /// <summary>
+    /// Установка стартового значения здоровья
+    /// </summary>
+    public void GetStartHealth()
     {
         _startHealth = _ship._currentShipDetails.startHealth;
         _currentHealth = _startHealth;
@@ -42,7 +45,10 @@ public class Health : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
+        _currentHealth -= damage; // Наносим дамаг
+
+        // Если здоровье меньше нуля, то смерть
+        if (_currentHealth <= 0) _ship.deathEvent.CallOnDeathEvent();
     }
 
 

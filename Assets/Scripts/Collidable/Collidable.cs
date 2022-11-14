@@ -47,17 +47,16 @@ public class Collidable : MonoBehaviour
         // Столкнулся сл стеной
         if (collision.gameObject.GetComponent<BorderCollider>()!=null)
         {
-            Debug.Log("Враг вышел за пределы экрана");
-            _ship.gameObject.SetActive(false); // деактивируем
+            // Debug.Log("Враг вышел за пределы экрана");
+            _ship.deathEvent.CallOnDeathEvent(); // Событие смерти корабля при его выходе за пределы экрана
         }
 
         // Столкнулся с игроком
         if (collision.gameObject == GameManager.Instance.GetPlayerShip())
         {
-            Debug.Log("Столкнулся с кораблем игрока");
             GameManager.Instance.GetPlayerShip().GetComponent<Ship>().changeHealthEvent.CallChangeHealthEvent(1); // наносим игроку урон
             _ship.changeHealthEvent.CallChangeHealthEvent(2); // наносим урон кораблю
-            _ship.gameObject.SetActive(false); // деактивируем
+            _ship.deathEvent.CallOnDeathEvent(); // Событие смерти корабля при столкновении
         }
 
 
