@@ -15,7 +15,7 @@ MonoBehaviour:
   nameLevel: Black Planet
   backgroundLevel: {fileID: 21300000, guid: ece0b6490492c8b41bb89cf9e69c36ec, type: 3}
   amountEnemyInLevel: 4
-  maxEnemyConcurent: 2
+  maxEnemyConcurent: 1
   intervalEnemySpawner: 3
   enemyGOList:
-  - {fileID: 6060015480402931881, guid: 01e0ebeb21b7f2544a6551d4dd51d9e2, type: 3}
+  - {fileID: 6060015480402931881, guid: dcb45ddb3460aea4cbcaeab752bf89c2, type: 3}

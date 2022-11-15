@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5401e5b8bef338545b6230c5a2a54ed7, type: 3}
-  m_Name: ShipDetails_EnemyShip_Type2
+  m_Script: {fileID: 11500000, guid: 9cab7593f3881f84380e89d6b8edf29d, type: 3}
+  m_Name: BonusDetails_GoldBolt
   m_EditorClassIdentifier: 
-  nameShip: Enemy Type 2
-  prefabShip: {fileID: 6060015480402931881, guid: dcb45ddb3460aea4cbcaeab752bf89c2, type: 3}
-  speedShip: 1
-  startHealth: 10
+  nameBonus: Gold Bolt
+  addHealthBonus: 2

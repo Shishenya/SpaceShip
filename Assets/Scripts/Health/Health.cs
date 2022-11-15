@@ -10,12 +10,12 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        _ship.changeHealthEvent.OnChangeHealth += ChangeHealthEvent_TestChangeHealth;
+        _ship.changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
     }
 
     private void OnDisable()
     {
-        _ship.changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_TestChangeHealth;
+        _ship.changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
     }
 
     public int CurrentHealth
@@ -38,11 +38,14 @@ public class Health : MonoBehaviour
         _currentHealth = _startHealth;
     }
 
-    private void ChangeHealthEvent_TestChangeHealth(ChangeHealthEventArgs changeHealthEventArgs)
+    private void ChangeHealthEvent_ChangeHealth(ChangeHealthEventArgs changeHealthEventArgs)
     {
         TakeDamage(changeHealthEventArgs.damage);
     }
 
+    /// <summary>
+    /// Получение дамага кораблем
+    /// </summary>
     private void TakeDamage(int damage)
     {
         _currentHealth -= damage; // Наносим дамаг

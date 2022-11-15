@@ -5,9 +5,6 @@ using UnityEngine;
 public class EnemySpawner : Singleton<EnemySpawner>
 {
 
-    [SerializeField] private int countSpawnerEnemy = 3;
-    [SerializeField] private ShipDetailsSO enemyShipDetails = null;
-
     private int _currentEnemyInScene = 0;
     private int _amountEnemySpawn = 0;
     private LevelDetailsSO _levelDetailsSO = null;
@@ -16,9 +13,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
     private bool _readySpawn = true;
 
     public int CurrentEnemyInScene { get { return _currentEnemyInScene; } }
-
-
-    [SerializeField] private GameObject _testEnemyPrefab = null;
 
     protected override void Awake()
     {
@@ -41,20 +35,15 @@ public class EnemySpawner : Singleton<EnemySpawner>
         }
         else
         {
-            Spawn(_testEnemyPrefab);
+            Spawn();
         }
-
-        //if (Input.GetKeyDown(KeyCode.O))
-        //{
-        //    Spawn(_testEnemyPrefab);
-        //}
 
     }
 
     /// <summary>
     /// Спавн противника
     /// </summary>
-    private void Spawn(GameObject _testEnemyPrefab)
+    private void Spawn()
     {
 
         // Валидация на текущее количество заспавненных противников
@@ -68,7 +57,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         // или на сцене уже есть корабли в достатке
         if (_currentEnemyInScene >= _levelDetailsSO.maxEnemyConcurent) return;
 
-        Debug.Log("Готов к спавну!");
+        // Debug.Log("Готов к спавну!");
 
         // если нет, то спавник корабль и прибавляем счетчики
 
@@ -85,10 +74,6 @@ public class EnemySpawner : Singleton<EnemySpawner>
             goSpawn.transform.position = randomVector3;
             goSpawn.SetActive(true);
 
-            // Устанавливаем детали корабля
-            Ship enemyShip = goSpawn.GetComponent<Ship>();
-            if (enemyShip != null)
-                enemyShip.InitShip(enemyShipDetails);
         }
 
         _timerSpawn = _startTimerSpawn; // устанавливаем таймер спавна в начальное значение

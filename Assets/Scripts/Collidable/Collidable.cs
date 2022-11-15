@@ -15,21 +15,31 @@ public class Collidable : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        // Debug.Log("Столкнулся");
-
         // Столкновения противника
-        if (gameObject.GetComponent<EnemyMoveAI>()!=null)
+        if (gameObject.GetComponent<Enemy>()!=null)
         {
             SwitchCollisionEnemy(collision);
+        }
+
+        if (gameObject.GetComponent<Player>()!=null)
+        {
+            SwitchCollisionPlayer(collision);
         }
 
         // Попадание снаряда
         if (collision.gameObject.GetComponent<Ammo>()!=null && gameObject.GetComponent<Health>()!=null)
         {
-            //Debug.Log("Попадания снаряда");
-            int damage = collision.gameObject.GetComponent<Ammo>().GetRandomDamage(); // получаем урон
-            _ship.changeHealthEvent.CallChangeHealthEvent(damage);
             collision.gameObject.SetActive(false);
+            int damage = collision.gameObject.GetComponent<Ammo>().GetRandomDamage(); // получаем урон
+
+            #region BAG!
+            // Какой то странный баг, связанный с коллизией. По противнику урон проходит почему то
+            // Два раза. Пока поставлю загрулшку на это
+            if (gameObject.GetComponent<Enemy>() != null) damage = damage / 2;
+            #endregion
+
+            _ship.changeHealthEvent.CallChangeHealthEvent(damage);            
+            Debug.Log("Попадания снаряда c уроном " + damage + " по объейкту " + _ship.gameObject.name);
         }
 
     }
@@ -39,7 +49,6 @@ public class Collidable : MonoBehaviour
     /// <summary>
     /// Ответы на столкновения врагов
     /// </summary>
-    /// <param name="collision"></param>
     private void SwitchCollisionEnemy(Collision2D collision)
     {
         // Debug.Log("События столкновения врага");
@@ -62,4 +71,18 @@ public class Collidable : MonoBehaviour
 
 
     }
+
+    /// <summary>
+    /// Реакци на столкновения игрока
+    /// </summary>
+    private void SwitchCollisionPlayer(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Bonus>()!=null)
+        {
+            // прибавляем здоровье
+            _ship.changeHealthEvent.CallChangeHealthEvent(-collision.gameObject.GetComponent<Bonus>().bonusDetails.addHealthBonus);
+            collision.gameObject.SetActive(false); // деактивируем бонус
+        }
+    }
+
 }

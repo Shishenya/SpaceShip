@@ -4,7 +4,6 @@ using UnityEngine;
 
 #region Required Component
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PolygonCollider2D))]
 
 [RequireComponent(typeof(MovementEvent))]
 [RequireComponent(typeof(Movement))]
@@ -26,7 +25,6 @@ public class Ship : MonoBehaviour
     [SerializeField] private GameObject _weaponEffectShootPosition;
 
     public ShipDetailsSO _currentShipDetails = null;
-    private Rigidbody2D _rigidbody2D = null;
 
     // Event Components
     [HideInInspector] public MovementEvent movementEvent;
@@ -42,7 +40,6 @@ public class Ship : MonoBehaviour
     private void Awake()
     {
         // Load components
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         movementEvent = GetComponent<MovementEvent>();
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         weapon = GetComponent<Weapon>();
