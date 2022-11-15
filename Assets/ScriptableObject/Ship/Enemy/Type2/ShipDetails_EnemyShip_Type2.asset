@@ -15,4 +15,4 @@ MonoBehaviour:
   nameShip: Enemy Type 2
   prefabShip: {fileID: 6060015480402931881, guid: dcb45ddb3460aea4cbcaeab752bf89c2, type: 3}
   speedShip: 1
-  startHealth: 10
+  startHealth: 20

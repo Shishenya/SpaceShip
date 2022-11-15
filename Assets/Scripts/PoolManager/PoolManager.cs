@@ -8,10 +8,6 @@ public class PoolManager : Singleton<PoolManager>
     private Transform parrentTransformAllPull;
     private Dictionary<int, Queue<GameObject>> poolDictionary = new Dictionary<int, Queue<GameObject>>();
 
-    #region Test
-    [SerializeField] private GameObject testPrefab;
-    #endregion
-
     // Структура для пула
     [System.Serializable]
     struct PoolArray
@@ -99,19 +95,6 @@ public class PoolManager : Singleton<PoolManager>
     private void ResetPrefab(GameObject prefab)
     {
         prefab.transform.position = transform.position;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            GameObject go = GetFromThePool(testPrefab);
-            if (go!=null)
-            {
-                ResetPrefab(go);
-                go.SetActive(true);
-            }
-        }
     }
 
 }

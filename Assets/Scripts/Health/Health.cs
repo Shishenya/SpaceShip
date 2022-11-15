@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public int _currentHealth;
     private Ship _ship;
 
+    private ChangeHealthEvent _changeHealthEvent;
+
     private void OnEnable()
     {
         _ship.changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
@@ -26,6 +28,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _ship = GetComponent<Ship>();
+        _changeHealthEvent = GetComponent<ChangeHealthEvent>();
         GetStartHealth();
     }
 
@@ -52,6 +55,9 @@ public class Health : MonoBehaviour
 
         // ≈сли здоровье меньше нул€, то смерть
         if (_currentHealth <= 0) _ship.deathEvent.CallOnDeathEvent();
+
+        // ћаксимальное здоровье - не выше старотового
+        if (_currentHealth > _startHealth) _currentHealth = _startHealth;
     }
 
 
