@@ -26,5 +26,12 @@ public class LevelDetailsSO : ScriptableObject
     [Tooltip("Interval spawn by enemy")]
     public float intervalEnemySpawner = 3f;
 
+    #region Spawn Enemy Details
+    [Space(10)]
+    [Header("Spawn Enemy Details")]
+    #endregion
+    [Tooltip("Enemy GO in this level")]
+    public List<GameObject> enemyGOList;
+
 
 }

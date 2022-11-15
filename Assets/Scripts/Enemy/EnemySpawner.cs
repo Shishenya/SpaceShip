@@ -72,7 +72,10 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
         // если нет, то спавник корабль и прибавляем счетчики
 
-        GameObject goSpawn = PoolManager.Instance.GetFromThePool(_testEnemyPrefab); // достаем объейкт из пула
+        // Получаем случайнфй префаб корабля врага
+        GameObject randomPrefab = GetRandomEnemyBySpawnLevel();
+
+        GameObject goSpawn = PoolManager.Instance.GetFromThePool(randomPrefab); // достаем объейкт из пула
         if (goSpawn != null)
         {
             _amountEnemySpawn++;
@@ -84,7 +87,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
             // Устанавливаем детали корабля
             Ship enemyShip = goSpawn.GetComponent<Ship>();
-            if (enemyShip!=null) 
+            if (enemyShip != null)
                 enemyShip.InitShip(enemyShipDetails);
         }
 
@@ -121,6 +124,25 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public int GetRemainsToSpawnEnemy()
     {
         return _levelDetailsSO.amountEnemyInLevel - _amountEnemySpawn;
+    }
+
+
+    /// <summary>
+    /// ВОзвращает случайный префаб врага среди тех, которые могут появиться на уровне
+    /// </summary>
+    private GameObject GetRandomEnemyBySpawnLevel()
+    {
+        int randomIndex = Random.Range(0, _levelDetailsSO.enemyGOList.Count);
+        if (_levelDetailsSO.enemyGOList[randomIndex] != null)
+        {
+            return _levelDetailsSO.enemyGOList[randomIndex];
+        }
+        else
+        {
+            return null;
+
+        }
+
     }
 
 }

@@ -73,7 +73,6 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Инициализация уровня
     /// </summary>
-    /// <param name="levelDetails"></param>
     private void InitialiseLevel(int currentLevelIndex)
     {
         currentLevel = levelDetailsList[currentLevelIndex];
@@ -118,7 +117,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Уровень пройден");
         currentLevelIndex++;
 
-        if (currentLevelIndex> levelDetailsList.Count)
+        if (currentLevelIndex>=levelDetailsList.Count)
         {
             GameWin();
         }

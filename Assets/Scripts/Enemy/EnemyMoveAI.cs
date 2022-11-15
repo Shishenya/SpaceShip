@@ -15,6 +15,11 @@ public class EnemyMoveAI : MonoBehaviour
     private Coroutine _coroutineVectorY;
     private Vector2 _playerPosition;
     private float _offsetY = 0.3f;
+    private float _offsetХ = 1f;
+
+    private float _maxBorderY = 6.5f;
+    private float _minBorderY = -6.5f;
+    private float _offsetBorderY = 1f;
 
 
     private void Awake()
@@ -25,7 +30,31 @@ public class EnemyMoveAI : MonoBehaviour
 
     private void Update()
     {
-        GetVectorMovementByType(); // получаем вектор движения врага
+        _playerPosition = GameManager.Instance.GetPlayerShip().transform.position;
+
+        // Если корбаль противника левее корабля игрока, то начинаем его движение в сторону края с большей скоростью
+        if (transform.position.x - _playerPosition.x < _offsetХ)
+        {
+            _horizontalMovement = -2f;
+            _verticalMovement = 0f;
+
+        }
+        // если есть вероятность приближения к краю экрана по Y
+        else if (transform.position.y + _offsetBorderY > _maxBorderY)
+        {
+            _horizontalMovement = -0.5f;
+            _verticalMovement = -1f;
+
+        } else if (transform.position.y - _offsetBorderY < _minBorderY)
+        {
+            _horizontalMovement = -0.5f;
+            _verticalMovement = 1f;
+        } 
+        else 
+        {
+            GetVectorMovementByType(); // получаем вектор движения врага в зависимости от его типа движения
+        }
+
 
         MovementAI(); // Двигаем его
     }
@@ -51,7 +80,6 @@ public class EnemyMoveAI : MonoBehaviour
 
             // Противник стремится врезаться в игрока
             case EnemyMoveType.Kamikaze:
-                _playerPosition = GameManager.Instance.GetPlayerShip().transform.position;
                 _horizontalMovement = -1f;
                 if (_playerPosition.y <= transform.position.y)
                 {
@@ -65,7 +93,6 @@ public class EnemyMoveAI : MonoBehaviour
 
             // Противник стремится занять туже линию, что и игрок
             case EnemyMoveType.SearchPlayerY:
-                _playerPosition = GameManager.Instance.GetPlayerShip().transform.position;
 
                 // Примрено на той же линии, что и игрок
                 if (Mathf.Abs(_playerPosition.y - transform.position.y) <= _offsetY)
@@ -75,12 +102,12 @@ public class EnemyMoveAI : MonoBehaviour
                 }
                 else if (_playerPosition.y >= transform.position.y)
                 {
-                    _horizontalMovement = 0.1f;
+                    _horizontalMovement = 0f;
                     _verticalMovement = 1f;
                 }
                 else
                 {
-                    _horizontalMovement = 0.1f;
+                    _horizontalMovement = -0.25f;
                     _verticalMovement = -1f;
                 }
 

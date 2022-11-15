@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3859809968867957926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060015480402931881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c88d914810930947b2e6d3cf25e63e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2164565696986904683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060015480402931881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6fdd32da2aa1f45b7f01007491b72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: dd1c1586367cbae4092ebc789ebd03ed, type: 2}
+--- !u!114 &1655049408696017213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060015480402931881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303d8e2d836f4f6458dc190d61650fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7246926896371044832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060015480402931881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfdb44ae959d1343ad7b763d1c7c22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2568704738829969710
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1775977872644948748, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8604b10e2e32a9d41af0e131cd50ac7c, type: 3}
+    - target: {fileID: 2111054486759227322, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: weaponDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 830154888c5fc3e45beb43bcd264c6a3, type: 2}
+    - target: {fileID: 2111054486759227322, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: _currentShipDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: ae9e38f66ee251b45917f14601f4bd28, type: 2}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455302386043625262, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846981254118373692, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846981254118373692, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_Name
+      value: EnemySpaceShipType2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998279799419560649, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998279799419560649, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.84
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8770959855956356328, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+    - {fileID: -2635236887643123163, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+--- !u!1 &6060015480402931881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+  m_PrefabInstance: {fileID: 2568704738829969710}
+  m_PrefabAsset: {fileID: 0}

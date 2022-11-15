@@ -17,3 +17,5 @@ MonoBehaviour:
   amountEnemyInLevel: 8
   maxEnemyConcurent: 4
   intervalEnemySpawner: 2
+  enemyGOList:
+  - {fileID: 6060015480402931881, guid: f1c49c729e0b370439d1b6dc1746c901, type: 3}
