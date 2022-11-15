@@ -75,7 +75,7 @@ public class PoolManager : Singleton<PoolManager>
         int keyID = prefab.GetInstanceID();
         if (poolDictionary.ContainsKey(keyID))
         {
-            Debug.Log("Пул данных объектов найден");
+            // Debug.Log("Пул данных объектов найден");
             GameObject go = poolDictionary[keyID].Dequeue();
             poolDictionary[keyID].Enqueue(go);
 

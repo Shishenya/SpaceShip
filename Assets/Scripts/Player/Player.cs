@@ -27,6 +27,14 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// Устанавливаеи стартовую позицию игрока
+    /// </summary>
+    public void SetStartPosition()
+    {
+        transform.position = new Vector3(Settings.startPlayerPosition.x, Settings.startPlayerPosition.y, 0f);
+    }
+
+    /// <summary>
     /// реакция на поражение игррока
     /// </summary>
     private void DeathPlayer()

@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private EnemyDetailsSO enemyDetails;
 
     private Ship _enemyShip;
+
+    public EnemyDetailsSO EnemyDetails
+    {
+        get
+        {
+            return enemyDetails;
+        }
+    }
 
     private void OnEnable()
     {
@@ -48,7 +57,7 @@ public class Enemy : MonoBehaviour
         _enemyShip.gameObject.SetActive(false);
 
         // Проверяем, если он был последним врагом на сцене, то выгирываем уровень
-        if (EnemySpawner.Instance.GetRemainsToSpawnEnemy()<=0 && EnemySpawner.Instance.CurrentEnemyInScene==0)
+        if (EnemySpawner.Instance.GetRemainsToSpawnEnemy() <= 0 && EnemySpawner.Instance.CurrentEnemyInScene == 0)
         {
             GameManager.Instance.GameNextLevel();
         }

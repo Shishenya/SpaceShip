@@ -60,7 +60,8 @@ public class GameManager : Singleton<GameManager>
     {
         // Инициализируем игрока
         _playerShip = Instantiate(shipDetailsPlayer.prefabShip); // создаем объект
-        _playerShip.transform.position = new Vector3(Settings.startPlayerPosition.x, Settings.startPlayerPosition.y, 0f); // устанавливаем кординаты
+        _playerShip.GetComponent<Player>().SetStartPosition();
+        //_playerShip.transform.position = new Vector3(Settings.startPlayerPosition.x, Settings.startPlayerPosition.y, 0f); // устанавливаем кординаты
 
         // Устанавливаем SO корабля
         Ship playerShipComponent = _playerShip.GetComponent<Ship>();
@@ -79,6 +80,7 @@ public class GameManager : Singleton<GameManager>
         background.sprite = levelDetailsList[currentLevelIndex].backgroundLevel; // обнвляем бекграунд
         _textFade = "Уровень " + (currentLevelIndex+1).ToString() + "\n " + levelDetailsList[currentLevelIndex].nameLevel;
         StartCoroutine(Fade(1f, 0f, 2f, Color.black, _textFade));
+        _playerShip.GetComponent<Player>().SetStartPosition();
     }
 
     /// <summary>
@@ -96,9 +98,8 @@ public class GameManager : Singleton<GameManager>
     /// Поражение в игре
     /// </summary>
     public void GameLost()
-    {
-        // перезапускаем сцену
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    {       
+        StartCoroutine(GameLostRoutine());
     }
 
     /// <summary>
@@ -106,7 +107,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void GameWin()
     {
-        Debug.Log("Вы прошли последний уровень. Поздравляю!");
+        StartCoroutine(GameWinRoutine());
     }
 
     /// <summary>
@@ -149,6 +150,38 @@ public class GameManager : Singleton<GameManager>
             yield return null;
         }
 
+    }
+
+    /// <summary>
+    /// Корутина с поражением
+    /// </summary>
+    public IEnumerator GameLostRoutine()
+    {
+        // Отключаем управление
+        GetPlayerShip().GetComponent<PlayerController>().DisablePLayerContoller();
+
+        // Запусуаем экран с поржанием
+        _textFade = "Вы проиграли.";
+        StartCoroutine(Fade(0f, 1f, 0f, Color.black, _textFade));
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /// <summary>
+    /// Корутина с победой
+    /// </summary>
+    public IEnumerator GameWinRoutine()
+    {
+        // Отключаем управление
+        GetPlayerShip().GetComponent<PlayerController>().DisablePLayerContoller();
+
+        // Запусуаем экран с победой
+        _textFade = "Вы выиграли!";
+        StartCoroutine(Fade(0f, 1f, 0f, Color.black, _textFade));
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

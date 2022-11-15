@@ -63,7 +63,6 @@ public class FireWeapon : MonoBehaviour
             Vector3 direction3 = new Vector3(direction.x, 0f, 0f); // задаем вектор выстрела
             ammo.InitAmmo(direction3, speed, weaponDetails.ammoDetailsThisWeapon.minAmmoDamage, weaponDetails.ammoDetailsThisWeapon.maxAmmoDagame); // инициализируем его
 
-            //go.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f) * speed; // запускам его            
         }
 
         // Устаналиваем оружие на перезарядку

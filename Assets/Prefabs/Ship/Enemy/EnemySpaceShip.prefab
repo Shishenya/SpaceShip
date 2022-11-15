@@ -24,6 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6fdd32da2aa1f45b7f01007491b72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetails: {fileID: 11400000, guid: 388d19b22a7c0ae46bf570b82724b842, type: 2}
 --- !u!114 &1655049408696017213
 MonoBehaviour:
   m_ObjectHideFlags: 0

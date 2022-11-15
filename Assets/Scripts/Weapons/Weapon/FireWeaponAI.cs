@@ -20,7 +20,7 @@ public class FireWeaponAI : MonoBehaviour
     {
         if (_enemyShip.weapon.ReadyShoot)
         {
-            Debug.Log("Я враг " + _enemyShip.gameObject.name + " Стреляю!");
+            // Debug.Log("Я враг " + _enemyShip.gameObject.name + " Стреляю!");
             _enemyShip.fireWeaponEvent.CallOnFireWeaponEvent(_enemyShip.weaponDetails, new Vector2(-1f,0f));
         }
     }
