@@ -6,18 +6,20 @@ public class Health : MonoBehaviour
 {
     private int _startHealth;
     public int _currentHealth;
-    private Ship _ship;
 
     private ChangeHealthEvent _changeHealthEvent;
+    private DeathEvent _deathEvent;
+
+    [SerializeField] private HealthDetailsSO healthDetails;
 
     private void OnEnable()
     {
-        _ship.changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
+        _changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
     }
 
     private void OnDisable()
     {
-        _ship.changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
+        _changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
     }
 
     public int CurrentHealth
@@ -25,10 +27,15 @@ public class Health : MonoBehaviour
         get { return _currentHealth; }
     }
 
+    public int StartHealth
+    {
+        get { return _startHealth;  }
+    }
+
     private void Awake()
     {
-        _ship = GetComponent<Ship>();
         _changeHealthEvent = GetComponent<ChangeHealthEvent>();
+        _deathEvent = GetComponent<DeathEvent>();
         GetStartHealth();
     }
 
@@ -37,7 +44,16 @@ public class Health : MonoBehaviour
     /// </summary>
     public void GetStartHealth()
     {
-        _startHealth = _ship._currentShipDetails.startHealth;
+
+        if (healthDetails!=null)
+        {
+            _startHealth = healthDetails.startHealth;
+        }
+        else
+        {
+            _startHealth = 1;
+        }
+
         _currentHealth = _startHealth;
     }
 
@@ -54,7 +70,7 @@ public class Health : MonoBehaviour
         _currentHealth -= damage; // Наносим дамаг
 
         // Если здоровье меньше нуля, то смерть
-        if (_currentHealth <= 0) _ship.deathEvent.CallOnDeathEvent();
+        if (_currentHealth <= 0) _deathEvent.CallOnDeathEvent();
 
         // Максимальное здоровье - не выше старотового
         if (_currentHealth > _startHealth) _currentHealth = _startHealth;

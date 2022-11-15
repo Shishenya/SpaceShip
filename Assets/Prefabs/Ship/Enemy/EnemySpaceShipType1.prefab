@@ -120,9 +120,13 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.84
       objectReference: {fileID: 0}
+    - target: {fileID: 3108648517713916764, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
+      propertyPath: healthDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e98b1d91d3669a44962e890dadd217f, type: 2}
     - target: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
       propertyPath: m_Name
-      value: EnemySpaceShip
+      value: EnemySpaceShipType1
       objectReference: {fileID: 0}
     - target: {fileID: 8627947601231763847, guid: 3552e06b72ff8c446983000c87139f49, type: 3}
       propertyPath: m_Layer

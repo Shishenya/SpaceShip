@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 0
+  healthDetails: {fileID: 11400000, guid: 33be66626e7367346b6cc137703341b4, type: 2}
 --- !u!114 &-6271051904084836032
 MonoBehaviour:
   m_ObjectHideFlags: 0

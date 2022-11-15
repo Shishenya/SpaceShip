@@ -41,13 +41,13 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void DeathEnemy()
     {
-        Debug.Log("Враг погиб");
+        // Debug.Log("Враг погиб");
 
         // Устанавливаем снова стартовое здоровье
         _enemyShip.health.GetStartHealth();
 
         // Увеличиваем количество очков для игрока
-        GameManager.Instance.GameScore = 10;
+        GameManager.Instance.GameScore = _enemyShip.health.StartHealth;
         GameManager.Instance.playerScoreUI.UpdateScore();
 
         // Изменяем спавн
