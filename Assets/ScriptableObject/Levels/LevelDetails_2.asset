@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameLevel: Blue Planet
   backgroundLevel: {fileID: 21300000, guid: 116de4d0df5b75f40ad153c109a1650c, type: 3}
-  amountEnemyInLevel: 7
+  amountEnemyInLevel: 8
   maxEnemyConcurent: 4
   intervalEnemySpawner: 3
   enemyGOList:

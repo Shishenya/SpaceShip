@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22db2c9a739437049a4c7f89176bab37, type: 3}
   m_Name: HealthDetails_PlayerShip
   m_EditorClassIdentifier: 
-  startHealth: 11
+  startHealth: 10
+  soundDestroy: {fileID: 11400000, guid: 849631e5b0692da43ab8d1b7da7ffdc8, type: 2}

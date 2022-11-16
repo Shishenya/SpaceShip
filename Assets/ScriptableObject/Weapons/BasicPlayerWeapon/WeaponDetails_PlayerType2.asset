@@ -18,3 +18,4 @@ MonoBehaviour:
   reloadTimeWeapon: 0.4
   currentBulletInShip: 0
   maxBulletInShip: 10
+  soundEffectFire: {fileID: 11400000, guid: dc34c75edf8e9bb4fb4e2925fc7ba429, type: 2}

@@ -4,4 +4,5 @@ using UnityEngine;
 public class HealthDetailsSO : ScriptableObject
 {
     public int startHealth = 10;
+    public SoundEffectSO soundDestroy; 
 }

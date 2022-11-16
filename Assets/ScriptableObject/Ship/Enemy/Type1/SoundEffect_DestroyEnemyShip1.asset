@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb0773a6d921524992623b1c5273567, type: 3}
+  m_Name: SoundEffect_DestroyEnemyShip1
+  m_EditorClassIdentifier: 
+  soundEffectName: Enemy Destroy Ship 1
+  soundPrefab: {fileID: 627234905121293042, guid: d3ba695b418011f4395242d03c2a55b5, type: 3}
+  soundEffectClip: {fileID: 8300000, guid: 973eb39fbbccc0b4bb7cabf48fd1abeb, type: 3}
+  soundEffectPitchRandomVariationMin: 0.8
+  soundEffectPitchRandomVariationMax: 1.2
+  soundEffectVolume: 0.2

@@ -65,6 +65,9 @@ public class FireWeapon : MonoBehaviour
 
         }
 
+        // звук выстрела
+        WeaponSoundEffect();
+
         // ”станаливаем оружие на перезар€дку
         _ship.weapon.ReadyShoot = false;
         _ship.weapon.Shoot(); // уменьшаем снар€ды
@@ -77,6 +80,17 @@ public class FireWeapon : MonoBehaviour
     private float randomAmmoSpeedInThisWeapon(float minSpeed, float maxSpeed)
     {
         return Random.Range(minSpeed, maxSpeed);
+    }
+
+    /// <summary>
+    /// Ёффект выстрела
+    /// </summary>
+    private void WeaponSoundEffect()
+    {
+        if (_ship.weapon.weaponShip.soundEffectFire!=null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(_ship.weapon.weaponShip.soundEffectFire);
+        }
     }
 
 }

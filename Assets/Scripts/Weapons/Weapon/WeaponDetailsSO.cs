@@ -29,4 +29,10 @@ public class WeaponDetailsSO : ScriptableObject
     [Tooltip("max bullet in ship space")]
     public int maxBulletInShip = 100;
 
+    #region Sound weapon 
+    [Space(10)]
+    [Header("Sound weapon")]
+    #endregion
+    public SoundEffectSO soundEffectFire;
+
 }

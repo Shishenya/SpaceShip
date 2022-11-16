@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -25,6 +26,10 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private List<LevelDetailsSO> levelDetailsList; // Список уровней
     public int currentLevelIndex = 0;
 
+    [Header("SOUND PARAMETERS")]
+    [Space(10)]
+    public AudioMixerGroup soundsMasterMixerGroup;
+
     private int _gameScore; // Игровые очки
     public int GameScore
     {
@@ -34,7 +39,7 @@ public class GameManager : Singleton<GameManager>
 
 
     #region Test
-    public LevelDetailsSO currentLevel = null;
+    [HideInInspector] public LevelDetailsSO currentLevel = null;
     #endregion
 
     protected override void Awake()

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: HealthDetails_EnemyShip1
   m_EditorClassIdentifier: 
   startHealth: 10
+  soundDestroy: {fileID: 11400000, guid: 854add81374c2cd4e908291c951cb5d9, type: 2}

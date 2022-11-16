@@ -15,11 +15,13 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         _changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
+        _deathEvent.OnDeath += SoundEffectDeath;
     }
 
     private void OnDisable()
     {
         _changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
+        _deathEvent.OnDeath -= SoundEffectDeath;
     }
 
     public int CurrentHealth
@@ -74,6 +76,17 @@ public class Health : MonoBehaviour
 
         // Максимальное здоровье - не выше старотового
         if (_currentHealth > _startHealth) _currentHealth = _startHealth;
+    }
+
+    /// <summary>
+    /// Звук уничтожения
+    /// </summary>
+    private void SoundEffectDeath(DeathEventArgs deathEventArgs)
+    {
+        if (healthDetails.soundDestroy!=null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(healthDetails.soundDestroy);
+        }
     }
 
 

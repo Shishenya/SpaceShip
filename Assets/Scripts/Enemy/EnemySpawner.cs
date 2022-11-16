@@ -7,10 +7,16 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private int _currentEnemyInScene = 0;
     private int _amountEnemySpawn = 0;
+    [HideInInspector] public int testDeathEnemy = 0;
     private LevelDetailsSO _levelDetailsSO = null;
     private float _timerSpawn;
     private float _startTimerSpawn;
     private bool _readySpawn = true;
+
+    public int AmountEnemyInScene
+    {
+        get { return _levelDetailsSO.amountEnemyInLevel;  }
+    }
 
     public int CurrentEnemyInScene { get { return _currentEnemyInScene; } }
 
@@ -79,6 +85,9 @@ public class EnemySpawner : Singleton<EnemySpawner>
         _timerSpawn = _startTimerSpawn; // устанавливаем таймер спавна в начальное значение
         _readySpawn = false; // Ставим заглушку на спавн
 
+        // Обновляем счетчик (для теста)
+        GameManager.Instance.playerScoreUI.UpdateScore();
+
     }
 
     /// <summary>
@@ -91,6 +100,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         _timerSpawn = _startTimerSpawn; // устаналиваем атймер спавна
         _currentEnemyInScene = 0; // на сцене противников 0
         _amountEnemySpawn = 0; // всего заспавнилось 0
+        testDeathEnemy = 0; // тестовое, сколько на уровне убил врагов
     }
 
     /// <summary>
@@ -99,6 +109,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public void DecrementEnemyInScene()
     {
         _currentEnemyInScene--;
+        testDeathEnemy++; // TEST!
         if (_currentEnemyInScene <= 0) _currentEnemyInScene = 0;
     }
 
