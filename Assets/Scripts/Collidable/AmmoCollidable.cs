@@ -10,12 +10,13 @@ public class AmmoCollidable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Ship>()!=null)
+        if (collision.gameObject.GetComponent<Health>()!=null)
         {
-            Ship ship = collision.gameObject.GetComponent<Ship>();
+            Health health = collision.gameObject.GetComponent<Health>();
             int damage = _ammo.GetRandomDamage();
-            ship.changeHealthEvent.CallChangeHealthEvent(damage);
+            health.changeHealthEvent.CallChangeHealthEvent(damage);
             gameObject.SetActive(false);
         }
+
     }
 }

@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ChangeHealthEvent))]
+[RequireComponent(typeof(DeathEvent))]
+[DisallowMultipleComponent]
 public class Health : MonoBehaviour
 {
     private int _startHealth;
     public int _currentHealth;
 
-    private ChangeHealthEvent _changeHealthEvent;
+    [HideInInspector] public ChangeHealthEvent changeHealthEvent;
     private DeathEvent _deathEvent;
 
     [SerializeField] private HealthDetailsSO healthDetails;
 
     private void OnEnable()
     {
-        _changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
+        changeHealthEvent.OnChangeHealth += ChangeHealthEvent_ChangeHealth;
         _deathEvent.OnDeath += SoundEffectDeath;
     }
 
     private void OnDisable()
     {
-        _changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
+        changeHealthEvent.OnChangeHealth -= ChangeHealthEvent_ChangeHealth;
         _deathEvent.OnDeath -= SoundEffectDeath;
     }
 
@@ -36,7 +39,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        _changeHealthEvent = GetComponent<ChangeHealthEvent>();
+        changeHealthEvent = GetComponent<ChangeHealthEvent>();
         _deathEvent = GetComponent<DeathEvent>();
         GetStartHealth();
     }

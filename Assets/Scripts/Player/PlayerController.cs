@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
 
         // trigger Move
-        _ship.movementEvent.CallMoveShip(direction, _ship._currentShipDetails.speedShip);
+        _ship.movementEvent.CallMoveEvent(direction, _ship._currentShipDetails.speedShip);
 
     }
 

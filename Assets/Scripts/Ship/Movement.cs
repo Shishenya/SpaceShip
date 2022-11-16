@@ -20,19 +20,19 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         // подписываемся на события движения
-        _movementEvent.OnMoveShip += MovementEvent_OnMoveShip;
+        _movementEvent.OnMove += MovementEvent_OnMove;
     }
 
     private void OnDisable()
     {
         // отписка
-        _movementEvent.OnMoveShip += MovementEvent_OnMoveShip;
+        _movementEvent.OnMove += MovementEvent_OnMove;
     }
 
     /// <summary>
-    /// Движение корабля
+    /// Движение
     /// </summary>
-    private void MovementEvent_OnMoveShip(MovementEvent movementEvent, MovementArgs movementArgs)
+    private void MovementEvent_OnMove(MovementEvent movementEvent, MovementArgs movementArgs)
     {
         Move(movementArgs.moveDirection, movementArgs.speed); 
     }

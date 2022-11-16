@@ -132,7 +132,7 @@ public class EnemyMoveAI : MonoBehaviour
         Vector2 direction = new Vector2(_horizontalMovement, _verticalMovement);
 
         // Триггер движения
-        _ship.movementEvent.CallMoveShip(direction, _ship._currentShipDetails.speedShip);
+        _ship.movementEvent.CallMoveEvent(direction, _ship._currentShipDetails.speedShip);
     }
 
     /// <summary>
