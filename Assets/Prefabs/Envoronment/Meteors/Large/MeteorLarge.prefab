@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6429034550418144217, guid: 24001ccc68d6566469187b019136590a, type: 3}
+      propertyPath: deathEffectGO
+      value: 
+      objectReference: {fileID: 5891102798220615780, guid: beaec07908dc08c4391ed727074b6381, type: 3}
     - target: {fileID: 2342263952451053415, guid: 24001ccc68d6566469187b019136590a, type: 3}
       propertyPath: healthDetails
       value: 

@@ -527,6 +527,8 @@ MonoBehaviour:
     prefabPool: {fileID: 3481549329512829995, guid: cc764e7adf8837e47bf5e6a0fbf30af3, type: 3}
   - sizePool: 5
     prefabPool: {fileID: 3286125000864925894, guid: fbfc768864d7ce0449c2bb90e3f11fdf, type: 3}
+  - sizePool: 5
+    prefabPool: {fileID: 5891102798220615780, guid: beaec07908dc08c4391ed727074b6381, type: 3}
 --- !u!4 &461721810
 Transform:
   m_ObjectHideFlags: 0

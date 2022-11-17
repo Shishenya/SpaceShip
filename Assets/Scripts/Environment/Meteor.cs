@@ -8,6 +8,7 @@ using UnityEngine;
 public class Meteor : MonoBehaviour, IDeadable
 {
 
+    [SerializeField] private GameObject deathEffectGO;
     private DeathEvent _deathEvent;
     private Health _health;
 
@@ -40,8 +41,15 @@ public class Meteor : MonoBehaviour, IDeadable
     /// </summary>
     public void Death()
     {
+        DeathEffect();
         _health.GetStartHealth(); // устанавлиаем значение ХП на стартовое
         gameObject.SetActive(false); // отключаем метеорит
     }
 
+    private void DeathEffect()
+    {
+        GameObject effect = PoolManager.Instance.GetFromThePool(deathEffectGO);
+        effect.transform.position = transform.position;
+        effect.SetActive(true);
+    }
 }
