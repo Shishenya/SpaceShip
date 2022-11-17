@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
-    [SerializeField] private int musicVolume = 2;
+    [SerializeField] private float _musicVolume = 0;
     private AudioSource _musicAudioSource = null;
     private AudioClip _currentAudioClip = null;
 
     protected override void Awake()
     {
         base.Awake();
+
         _musicAudioSource = GetComponent<AudioSource>();
-        SetAudioClipByLevel();
+    }
+
+    private void Start()
+    {
+        SetAudioClipByLevel();        
     }
 
     /// <summary>
@@ -24,8 +29,8 @@ public class MusicManager : Singleton<MusicManager>
         {
             _currentAudioClip = GameManager.Instance.currentLevel.audioClip;
             _musicAudioSource.clip = _currentAudioClip;
-            SetMusicVolume(musicVolume);
             _musicAudioSource.Play();
+            SetMusicVolume(_musicVolume);
         }
     }
 
@@ -37,20 +42,23 @@ public class MusicManager : Singleton<MusicManager>
         SetAudioClipByLevel();
     }
 
-    public void SetMusicVolume(int musicVolume)
+    public void SetMusicVolume(float musicVolume)
     {
         float muteDecibels = -80f;
+        _musicVolume = musicVolume;
+
         if (musicVolume == 0)
         {
             GameManager.Instance.musicMasterMixerGroup.audioMixer.SetFloat("musicVolume", muteDecibels);
         }
         else
         {
-            GameManager.Instance.musicMasterMixerGroup.audioMixer.SetFloat("musicVolume", LinearToDecibels(musicVolume));
+            GameManager.Instance.musicMasterMixerGroup.audioMixer.SetFloat("musicVolume", LinearToDecibels(_musicVolume));
         }
+
     }
 
-    public static float LinearToDecibels(int linear)
+    public static float LinearToDecibels(float linear)
     {
         float linearScaleRange = 20f;
 

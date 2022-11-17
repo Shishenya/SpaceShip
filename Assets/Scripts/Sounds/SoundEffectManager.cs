@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundEffectManager : Singleton<SoundEffectManager>
 {
     [SerializeField] private GameObject soundPrefab;
-    public int soundsVolume = 8;
+    [SerializeField] private float _soundsVolume = 2;
 
     /// <summary>
     /// Play the sound effect
@@ -14,7 +14,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
 
     private void Start()
     {
-        SetSoundsVolume(soundsVolume);
+        SetSoundVolume(_soundsVolume);
     }
 
     public void PlaySoundEffect(SoundEffectSO soundEffect)
@@ -48,9 +48,10 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
     /// <summary>
     /// Устанвока громкости
     /// </summary>
-    private void SetSoundsVolume(int soundsVolume)
+    public void SetSoundVolume(float soundsVolume)
     {
         float muteDecibels = -80f;
+        _soundsVolume = soundsVolume;
 
         if (soundsVolume == 0)
         {
@@ -65,7 +66,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
     /// <summary>
     /// переводит в децибелы
     /// </summary>
-    public static float LinearToDecibels(int linear)
+    public static float LinearToDecibels(float linear)
     {
         float linearScaleRange = 20f;
 
