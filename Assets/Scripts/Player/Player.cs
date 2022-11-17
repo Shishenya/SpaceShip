@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDeadable
 {
     private Ship _playerShip;
 
     private void OnEnable()
     {
-        _playerShip.deathEvent.OnDeath += DeathEvent_OnDeathPlayer;
+        _playerShip.deathEvent.OnDeath += DeathEvent_OnDeath;
     }
 
     private void OnDisable()
     {
-        _playerShip.deathEvent.OnDeath -= DeathEvent_OnDeathPlayer;
+        _playerShip.deathEvent.OnDeath -= DeathEvent_OnDeath;
     }
 
     private void Awake()
@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
         _playerShip = GetComponent<Ship>();
     }
 
-    private void DeathEvent_OnDeathPlayer(DeathEventArgs deathEventArgs)
+    public void DeathEvent_OnDeath(DeathEventArgs deathEventArgs)
     {
-        DeathPlayer();
+        Death();
     }
 
     /// <summary>
@@ -37,9 +37,8 @@ public class Player : MonoBehaviour
     /// <summary>
     /// реакция на поражение игррока
     /// </summary>
-    private void DeathPlayer()
+    public void Death()
     {
-        Debug.Log("Игрок проиграл!");
         GameManager.Instance.GameLost();  // перезапускаем сцену
     }
 

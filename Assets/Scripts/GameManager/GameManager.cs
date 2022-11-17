@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
     [Header("SOUND PARAMETERS")]
     [Space(10)]
     public AudioMixerGroup soundsMasterMixerGroup;
+    public AudioMixerGroup musicMasterMixerGroup;
 
     private int _gameScore; // Игровые очки
     public int GameScore
@@ -39,7 +40,7 @@ public class GameManager : Singleton<GameManager>
 
 
     #region Test
-    [HideInInspector] public LevelDetailsSO currentLevel = null;
+    public LevelDetailsSO currentLevel = null;
     #endregion
 
     protected override void Awake()
@@ -133,6 +134,7 @@ public class GameManager : Singleton<GameManager>
         {
             InitialiseLevel(currentLevelIndex); // инициализируем новый уровень
             EnemySpawner.Instance.ResetLevel(); // Устанавливаем нвоый уровень
+            MusicManager.Instance.RestartMusic();
             playerScoreUI.UpdateScore(); // обновляем UI 
         }
     }

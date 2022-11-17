@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDeadable
 {
     [SerializeField] private EnemyDetailsSO enemyDetails;
 
@@ -18,12 +18,12 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyShip.deathEvent.OnDeath += DeathEvent_OnDeathEnemy;
+        _enemyShip.deathEvent.OnDeath += DeathEvent_OnDeath;
     }
 
     private void OnDisable()
     {
-        _enemyShip.deathEvent.OnDeath -= DeathEvent_OnDeathEnemy;
+        _enemyShip.deathEvent.OnDeath -= DeathEvent_OnDeath;
     }
 
     private void Awake()
@@ -31,15 +31,15 @@ public class Enemy : MonoBehaviour
         _enemyShip = GetComponent<Ship>();
     }
 
-    private void DeathEvent_OnDeathEnemy(DeathEventArgs deathEventArgs)
+    public void DeathEvent_OnDeath(DeathEventArgs deathEventArgs)
     {
-        DeathEnemy();
+        Death();
     }
 
     /// <summary>
     /// Смерть врага
     /// </summary>
-    private void DeathEnemy()
+    public void Death()
     {
         // Debug.Log("Враг погиб");
 

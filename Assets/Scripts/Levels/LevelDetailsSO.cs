@@ -33,5 +33,10 @@ public class LevelDetailsSO : ScriptableObject
     [Tooltip("Enemy GO in this level")]
     public List<GameObject> enemyGOList;
 
+    #region Sound
+    [Space(10)]
+    [Header("Sound")]
+    #endregion
+    public AudioClip audioClip;
 
 }

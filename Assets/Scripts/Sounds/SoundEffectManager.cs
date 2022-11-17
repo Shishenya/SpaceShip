@@ -10,6 +10,13 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
     /// <summary>
     /// Play the sound effect
     /// </summary>
+    /// 
+
+    private void Start()
+    {
+        SetSoundsVolume(soundsVolume);
+    }
+
     public void PlaySoundEffect(SoundEffectSO soundEffect)
     {
         // Достаем из пула префаб

@@ -20,3 +20,4 @@ MonoBehaviour:
   enemyGOList:
   - {fileID: 6060015480402931881, guid: f1c49c729e0b370439d1b6dc1746c901, type: 3}
   - {fileID: 6060015480402931881, guid: dcb45ddb3460aea4cbcaeab752bf89c2, type: 3}
+  audioClip: {fileID: 8300000, guid: 2f688764a0fb1f848aeded047d89481e, type: 3}
