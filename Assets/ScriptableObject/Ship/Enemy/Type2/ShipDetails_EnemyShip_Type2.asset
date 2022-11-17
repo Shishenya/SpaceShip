@@ -16,3 +16,4 @@ MonoBehaviour:
   prefabShip: {fileID: 6060015480402931881, guid: dcb45ddb3460aea4cbcaeab752bf89c2, type: 3}
   speedShip: 1
   startHealth: 20
+  deathEffect: {fileID: 3286125000864925894, guid: fbfc768864d7ce0449c2bb90e3f11fdf, type: 3}

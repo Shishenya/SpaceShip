@@ -56,10 +56,28 @@ public class Enemy : MonoBehaviour
         // ƒеактивируем
         _enemyShip.gameObject.SetActive(false);
 
+        // Ёффект смерти
+        DeathEffect();
+
         // ѕровер€ем, если он был последним врагом на сцене, то выгирываем уровень
         if (EnemySpawner.Instance.GetRemainsToSpawnEnemy() <= 0 && EnemySpawner.Instance.CurrentEnemyInScene == 0)
         {
             GameManager.Instance.GameNextLevel();
+        }
+
+
+    }
+
+    /// <summary>
+    /// Ёффекст смерти корабл€
+    /// </summary>
+    private void DeathEffect()
+    {
+        if (_enemyShip._currentShipDetails.deathEffect!=null)
+        {
+            GameObject goEffect = PoolManager.Instance.GetFromThePool(_enemyShip._currentShipDetails.deathEffect);
+            goEffect.transform.position = transform.position;
+            goEffect.SetActive(true);
         }
     }
 

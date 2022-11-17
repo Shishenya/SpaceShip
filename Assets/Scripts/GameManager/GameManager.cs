@@ -102,7 +102,8 @@ public class GameManager : Singleton<GameManager>
     /// Поражение в игре
     /// </summary>
     public void GameLost()
-    {       
+    {
+        PoolManager.Instance.ClearEnableList();
         StartCoroutine(GameLostRoutine());
     }
 
@@ -111,6 +112,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void GameWin()
     {
+        PoolManager.Instance.ClearEnableList();
         StartCoroutine(GameWinRoutine());
     }
 
@@ -121,6 +123,7 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("Уровень пройден");
         currentLevelIndex++;
+        PoolManager.Instance.ClearEnableList();
 
         if (currentLevelIndex>=levelDetailsList.Count)
         {

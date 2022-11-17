@@ -15,6 +15,13 @@ public class AmmoCollidable : MonoBehaviour
             Health health = collision.gameObject.GetComponent<Health>();
             int damage = _ammo.GetRandomDamage();
             health.changeHealthEvent.CallChangeHealthEvent(damage);
+            PoolManager.Instance.DeleteFromEnableList(gameObject);
+            gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.GetComponent<BorderCollider>() != null)
+        {
+            PoolManager.Instance.DeleteFromEnableList(gameObject);
             gameObject.SetActive(false);
         }
 

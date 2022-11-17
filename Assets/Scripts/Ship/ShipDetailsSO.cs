@@ -32,5 +32,6 @@ public class ShipDetailsSO : ScriptableObject
     [Header("HEALTH")]
     #endregion
     public int startHealth = 10;
+    public GameObject deathEffect;
 
 }

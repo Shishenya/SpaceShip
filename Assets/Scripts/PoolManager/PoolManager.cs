@@ -8,6 +8,11 @@ public class PoolManager : Singleton<PoolManager>
     private Transform parrentTransformAllPull;
     private Dictionary<int, Queue<GameObject>> poolDictionary = new Dictionary<int, Queue<GameObject>>();
 
+    #region test
+    // test
+    private List<GameObject> _enableGOList = new List<GameObject>();
+    #endregion
+
     // Структура для пула
     [System.Serializable]
     struct PoolArray
@@ -31,8 +36,6 @@ public class PoolManager : Singleton<PoolManager>
     /// <summary>
     /// Создание пула объектов
     /// </summary>
-    /// <param name="poolSize"></param>
-    /// <param name="poolPrefab"></param>
     private void CreatePool(int poolSize, GameObject poolPrefab)
     {
 
@@ -52,7 +55,7 @@ public class PoolManager : Singleton<PoolManager>
             for (int i = 0; i < poolSize; i++) // добавляем все объйекты в него
             {
                 GameObject newObject = Instantiate(poolPrefab, parentGameObject.transform) as GameObject; // создаем объейкт
-                 
+
                 newObject.SetActive(false); // выключаем его
 
                 poolDictionary[keyID].Enqueue(newObject); // добавялем в словарь
@@ -74,6 +77,7 @@ public class PoolManager : Singleton<PoolManager>
             // Debug.Log("Пул данных объектов найден");
             GameObject go = poolDictionary[keyID].Dequeue();
             poolDictionary[keyID].Enqueue(go);
+            _enableGOList.Add(go); // test
 
             // Если объейкт был активен, то выключаем его
             if (go.gameObject.activeSelf == true)
@@ -92,9 +96,31 @@ public class PoolManager : Singleton<PoolManager>
 
     }
 
-    private void ResetPrefab(GameObject prefab)
+
+    /// <summary>
+    /// Очищает с экрана элементы после загрузки уровня
+    /// </summary>
+    public void ClearEnableList()
     {
-        prefab.transform.position = transform.position;
+        for (int i = _enableGOList.Count - 1; i >= 0; i--)
+        {
+            GameObject go = _enableGOList[i];
+            go.SetActive(false);
+            _enableGOList.RemoveAt(i);
+        }
+        _enableGOList.Clear();
+    }
+
+    /// <summary>
+    /// Удаляет из списка пула на экрана GameObject 
+    /// </summary>
+    public void DeleteFromEnableList(GameObject gameObject)
+    {
+        if (_enableGOList.Contains(gameObject))
+        {
+            int index = _enableGOList.IndexOf(gameObject);
+            _enableGOList.RemoveAt(index);
+        }
     }
 
 }

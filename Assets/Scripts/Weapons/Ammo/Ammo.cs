@@ -42,14 +42,6 @@ public class Ammo : MonoBehaviour
         _rigidbody2D.velocity = _directionFire * _speedAmmo; // запускам его 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<BorderCollider>()!=null)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
     /// <summary>
     /// ¬озвращает случайны урон
     /// </summary>
