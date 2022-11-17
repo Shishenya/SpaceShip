@@ -15,21 +15,34 @@ public class GameManager : Singleton<GameManager>
     [Tooltip("Player ship details")]
     [SerializeField] private ShipDetailsSO shipDetailsPlayer;
 
-    private GameObject _playerShip = null; // Корабль игрока
-
+    #region Header UI Element
+    [Space(10)]
+    [Header("UI Element")]
+    #endregion
     public PlayerScoreUI playerScoreUI;
     [SerializeField] private SpriteRenderer background;
-
     [SerializeField] private CanvasGroup canvasFade;
-    private string _textFade;
+    [SerializeField] private GameObject pauseMenuUI;
+
+    private GameObject _playerShip = null; // Корабль игрока
+    private string _textFade; // текст соообщения при появлении экрана
+    private bool _isPause = false;
+
+    public bool IsPause
+    {
+        get => _isPause;
+        set => _isPause = value;
+    }
 
     [SerializeField] private List<LevelDetailsSO> levelDetailsList; // Список уровней
-    public int currentLevelIndex = 0;
+    [HideInInspector] public int currentLevelIndex = 0;
 
     [Header("SOUND PARAMETERS")]
     [Space(10)]
     public AudioMixerGroup soundsMasterMixerGroup;
     public AudioMixerGroup musicMasterMixerGroup;
+
+    [HideInInspector] public LevelDetailsSO currentLevel = null;
 
     private int _gameScore; // Игровые очки
     public int GameScore
@@ -39,13 +52,12 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    #region Test
-    public LevelDetailsSO currentLevel = null;
-    #endregion
-
     protected override void Awake()
     {
         base.Awake();
+
+        // Скрываем менб паузы
+        pauseMenuUI.SetActive(false);
 
         // Инициализируем игрока
         InitialisePlayerShip();
@@ -54,9 +66,23 @@ public class GameManager : Singleton<GameManager>
         InitialiseLevel(currentLevelIndex);
     }
 
-    private void Start()
+    private void Update()
     {
-        // StartCoroutine(Fade(1f, 0f, 2f, Color.black, _textFade));
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_isPause)
+            {
+                _playerShip.GetComponent<PlayerController>().EnablePLayerContoller();
+                pauseMenuUI.SetActive(false);
+                _isPause = false;
+            }
+            else
+            {
+                _playerShip.GetComponent<PlayerController>().DisablePLayerContoller();
+                pauseMenuUI.SetActive(true);
+                _isPause = true;
+            }
+        }
     }
 
     /// <summary>
@@ -83,7 +109,7 @@ public class GameManager : Singleton<GameManager>
     {
         currentLevel = levelDetailsList[currentLevelIndex];
         background.sprite = levelDetailsList[currentLevelIndex].backgroundLevel; // обнвляем бекграунд
-        _textFade = "Уровень " + (currentLevelIndex+1).ToString() + "\n " + levelDetailsList[currentLevelIndex].nameLevel;
+        _textFade = "Уровень " + (currentLevelIndex + 1).ToString() + "\n " + levelDetailsList[currentLevelIndex].nameLevel;
         StartCoroutine(Fade(1f, 0f, 2f, Color.black, _textFade));
         _playerShip.GetComponent<Player>().SetStartPosition();
     }
@@ -126,7 +152,7 @@ public class GameManager : Singleton<GameManager>
         currentLevelIndex++;
         PoolManager.Instance.ClearEnableList();
 
-        if (currentLevelIndex>=levelDetailsList.Count)
+        if (currentLevelIndex >= levelDetailsList.Count)
         {
             GameWin();
         }

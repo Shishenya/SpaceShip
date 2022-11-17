@@ -18,9 +18,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        MovementInput(); // Move player ship
-
-        FireInput(); // Fire player ship
+        // Делаем, если нет паузы
+        if (!GameManager.Instance.IsPause)
+        {
+            MovementInput(); // Move player ship
+            FireInput(); // Fire player ship
+        }
     }
 
     /// <summary>

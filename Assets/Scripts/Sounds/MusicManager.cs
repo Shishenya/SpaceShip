@@ -24,6 +24,7 @@ public class MusicManager : Singleton<MusicManager>
         {
             _currentAudioClip = GameManager.Instance.currentLevel.audioClip;
             _musicAudioSource.clip = _currentAudioClip;
+            SetMusicVolume(musicVolume);
             _musicAudioSource.Play();
         }
     }
