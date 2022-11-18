@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDeadable
@@ -31,7 +29,7 @@ public class Enemy : MonoBehaviour, IDeadable
         _enemyShip = GetComponent<Ship>();
     }
 
-    public void DeathEvent_OnDeath(DeathEventArgs deathEventArgs)
+    public void DeathEvent_OnDeath()
     {
         Death();
     }

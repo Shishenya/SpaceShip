@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +10,12 @@ public class PauseMenu : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0f;
+        GameManager.Instance.GetPlayerShip().GetComponent<PlayerController>().DisablePLayerContoller();
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.GetPlayerShip().GetComponent<PlayerController>().EnablePLayerContoller();
         Time.timeScale = 1f;
     }
 

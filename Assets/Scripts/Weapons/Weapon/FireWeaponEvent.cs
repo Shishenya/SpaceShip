@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -7,12 +5,12 @@ using System;
 public class FireWeaponEvent : MonoBehaviour
 {
     // Ивент выстрела с оружия
-    public event Action<FireWeaponEvent, FireWeaponEventArgs> OnFireWeapon;
+    public event Action<FireWeaponEventArgs> OnFireWeapon;
 
     // Прозвон
     public void CallOnFireWeaponEvent(WeaponDetailsSO weaponDetails, Vector2 direction)
     {
-        OnFireWeapon?.Invoke(this, new FireWeaponEventArgs() { weaponDetails  = weaponDetails , direction = direction });
+        OnFireWeapon?.Invoke(new FireWeaponEventArgs() { weaponDetails  = weaponDetails , direction = direction });
     }
 
 }

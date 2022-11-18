@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="WeaponDetails_", menuName = "Scriptable Objects/Weapons/Weapon Details")]

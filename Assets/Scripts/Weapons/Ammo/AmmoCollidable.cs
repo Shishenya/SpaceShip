@@ -10,6 +10,7 @@ public class AmmoCollidable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Попадание в объект у которого есть здоровье
         if (collision.gameObject.GetComponent<Health>()!=null)
         {
             Health health = collision.gameObject.GetComponent<Health>();
@@ -19,6 +20,7 @@ public class AmmoCollidable : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        // Попадание в границу экрана
         if (collision.gameObject.GetComponent<BorderCollider>() != null)
         {
             PoolManager.Instance.DeleteFromEnableList(gameObject);

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -33,7 +31,6 @@ public class Weapon : MonoBehaviour
         _reloadTimer = weaponShip.reloadTimeWeapon;
         _currentAmountAmmo = weaponShip.maxBulletInShip; // устанавлиаем текущее количество снарядом как максимальное
         _maxAmountAmmo = weaponShip.maxBulletInShip;
-        // Debug.Log("Инициализированно оружие: " + _weaponShip.name);
 
     }
 

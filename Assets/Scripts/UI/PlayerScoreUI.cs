@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -20,7 +18,7 @@ public class PlayerScoreUI : MonoBehaviour
                          "\nВсего врагов на уровне: " + EnemySpawner.Instance.AmountEnemyInScene.ToString() +
                          "\nОжидающих спавна: " +EnemySpawner.Instance.GetRemainsToSpawnEnemy().ToString() +
                          "\nНа сцене врагов: " + EnemySpawner.Instance.CurrentEnemyInScene.ToString() + 
-                         "\nУбито врагов: " + EnemySpawner.Instance.testDeathEnemy.ToString();
+                         "\nУбито врагов: " + EnemySpawner.Instance.amountDeathEnemy.ToString();
     }
 
 }

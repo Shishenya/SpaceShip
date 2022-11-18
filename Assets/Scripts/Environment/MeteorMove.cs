@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementEvent))]
@@ -8,7 +6,7 @@ using UnityEngine;
 public class MeteorMove : MonoBehaviour
 {
     private MovementEvent _movementEvent;
-    private float _testSpeed = 3f;
+    private float _speed = 3f;
 
     private void Awake()
     {
@@ -25,10 +23,10 @@ public class MeteorMove : MonoBehaviour
     /// </summary>
     private void MeteorMoveUpdate()
     {
-        // Вектор движение корабля противника
+        // Вектор движение метеора
         Vector2 direction = new Vector2(-1f, 0f);
 
         // Триггер движения
-        _movementEvent.CallMoveEvent(direction, _testSpeed);
+        _movementEvent.CallMoveEvent(direction, _speed);
     }
 }

@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class BonusSpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> bonusList;
-    [SerializeField] private int scoreBonusInstantiate = 20;
-    [SerializeField] private float bonusLifeSecond = 2f;
+    [Tooltip("List of bonuses")]
+    [SerializeField] private List<GameObject> _bonusList;
+    [Tooltip("After how many score the bonus appears on the stage")]
+    [SerializeField] private int _scoreBonusInstantiate = 20;
+    [Tooltip("Time life bonus in scene")]
+    [SerializeField] private float _bonusLifeSecond = 2f;
 
     private float _minX = -10f;
     private float _maxX = 10f;
     private float _minY = -5f;
     private float _maxY = 5f;
 
-    private int counterScore = 0;
+    private int _counterScore = 0;
 
     private void Awake()
     {
@@ -22,7 +25,7 @@ public class BonusSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GameScore >= counterScore)
+        if (GameManager.Instance.GameScore >= _counterScore)
         {
             IncrementNextBonusScoreInstantate(); // увеличиаем счетчик для появления нового бонус
             InstantiateBonusInScene(); // добавляем бонус на сцену
@@ -40,7 +43,6 @@ public class BonusSpawner : MonoBehaviour
     /// <summary>
     /// Корутина появления бонусы на сцене
     /// </summary>
-    /// <returns></returns>
     private IEnumerator InstantiateBonusInSceneRoutine()
     {
         // достаем рандомный бонус
@@ -59,7 +61,7 @@ public class BonusSpawner : MonoBehaviour
             goSpawn.SetActive(true);
 
 
-            yield return new WaitForSeconds(bonusLifeSecond);
+            yield return new WaitForSeconds(_bonusLifeSecond);
             goSpawn.SetActive(false);
         }
 
@@ -72,7 +74,7 @@ public class BonusSpawner : MonoBehaviour
     /// </summary>
     private void IncrementNextBonusScoreInstantate()
     {
-        counterScore += scoreBonusInstantiate;
+        _counterScore += _scoreBonusInstantiate;
     }
 
 
@@ -91,10 +93,10 @@ public class BonusSpawner : MonoBehaviour
     /// </summary>
     private GameObject GetRandomBonusPrefab()
     {
-        if (bonusList.Count > 0)
+        if (_bonusList.Count > 0)
         {
-            int index = Random.Range(0, bonusList.Count);
-            return bonusList[index];
+            int index = Random.Range(0, _bonusList.Count);
+            return _bonusList[index];
         }
         else
         {

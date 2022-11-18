@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c363b259bf896418e2da22a7a2bc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testDeathEnemy: 0
+  amountDeathEnemy: 0
 --- !u!4 &215993472
 Transform:
   m_ObjectHideFlags: 0
@@ -4648,10 +4648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82810e8f2a6db5441a87f6a9bb62a41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusList:
+  _bonusList:
   - {fileID: 798743897071532298, guid: 4c3b5f1216cccbd48a57791fab64d737, type: 3}
-  scoreBonusInstantiate: 20
-  bonusLifeSecond: 3
+  _scoreBonusInstantiate: 20
+  _bonusLifeSecond: 2
 --- !u!1 &1562135124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,18 +5059,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipDetailsPlayer: {fileID: 11400000, guid: 1cc909ddb9b2f074d9b6e3f0e12a5e02, type: 2}
   playerScoreUI: {fileID: 1905154964}
-  background: {fileID: 427572001}
-  canvasFade: {fileID: 310736680}
-  pauseMenuUI: {fileID: 1467320158}
-  levelDetailsList:
+  _background: {fileID: 427572001}
+  _canvasFade: {fileID: 310736680}
+  _pauseMenuUI: {fileID: 1467320158}
+  _levelDetailsList:
   - {fileID: 11400000, guid: 9204bb35058b50a48bc083398364176c, type: 2}
   - {fileID: 11400000, guid: df2318929a271de438dd5eed59a7eaac, type: 2}
   - {fileID: 11400000, guid: 68fd00f00e3cf074d8001c7175d28877, type: 2}
   - {fileID: 11400000, guid: 59a87b5eb7481f64f8f3d112391308e9, type: 2}
   currentLevelIndex: 0
+  currentLevelDetails: {fileID: 0}
   soundsMasterMixerGroup: {fileID: -4958156677837055423, guid: a4509f2d93cec864cb2a8f0c28007900, type: 2}
   musicMasterMixerGroup: {fileID: 4268677215443327628, guid: a4509f2d93cec864cb2a8f0c28007900, type: 2}
-  currentLevel: {fileID: 0}
 --- !u!4 &1686024137
 Transform:
   m_ObjectHideFlags: 0

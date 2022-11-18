@@ -1,20 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class DeathEvent : MonoBehaviour
 {
-    public event Action<DeathEventArgs> OnDeath;
+    public event Action OnDeath;
 
     public void CallOnDeathEvent()
     {
-        OnDeath?.Invoke(new DeathEventArgs() { } );
+        OnDeath?.Invoke();
     }
-
-}
-
-public class DeathEventArgs: EventArgs
-{
 
 }

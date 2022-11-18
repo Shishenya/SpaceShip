@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementEvent))]
@@ -9,6 +7,7 @@ public class NoCollisionObjectMove : MonoBehaviour
     private MovementEvent _movementEvent;
     private float _testSpeedMin = 0.3f;
     private float _testSpeedMax = 3f;
+    private float _leftBorderX = -17.5f;
 
     private void Awake()
     {
@@ -17,7 +16,14 @@ public class NoCollisionObjectMove : MonoBehaviour
 
     private void Update()
     {
-        NoCollisionMoveUpdate();
+        if (CheckLeftBorder())
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            NoCollisionMoveUpdate();
+        }
     }
 
     /// <summary>
@@ -25,11 +31,21 @@ public class NoCollisionObjectMove : MonoBehaviour
     /// </summary>
     private void NoCollisionMoveUpdate()
     {
-        // Вектор движение корабля противника
+        // Вектор движение
         Vector2 direction = new Vector2(-1.5f, 0f);
 
         // Триггер движения
         float _testSpeed = Random.Range(_testSpeedMin, _testSpeedMax);
         _movementEvent.CallMoveEvent(direction, _testSpeed);
+    }
+
+    /// <summary>
+    /// Проверяет, вышел ли объект за левую границу по Х
+    /// </summary>
+    private bool CheckLeftBorder()
+    {
+        if (transform.position.x <= _leftBorderX) return true;
+
+        return false;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : Singleton<EnemySpawner>
@@ -7,11 +5,11 @@ public class EnemySpawner : Singleton<EnemySpawner>
 
     private int _currentEnemyInScene = 0;
     private int _amountEnemySpawn = 0;
-    [HideInInspector] public int testDeathEnemy = 0;
     private LevelDetailsSO _levelDetailsSO = null;
     private float _timerSpawn;
     private float _startTimerSpawn;
     private bool _readySpawn = true;
+    [HideInInspector] public int amountDeathEnemy = 0;
 
     public int AmountEnemyInScene
     {
@@ -85,7 +83,7 @@ public class EnemySpawner : Singleton<EnemySpawner>
         _timerSpawn = _startTimerSpawn; // устанавливаем таймер спавна в начальное значение
         _readySpawn = false; // —тавим заглушку на спавн
 
-        // ќбновл€ем счетчик (дл€ теста)
+        // ќбновл€ем счетчик
         GameManager.Instance.playerScoreUI.UpdateScore();
 
     }
@@ -95,12 +93,12 @@ public class EnemySpawner : Singleton<EnemySpawner>
     /// </summary>
     public void ResetLevel()
     {
-        _levelDetailsSO = GameManager.Instance.currentLevel; // берем уровень
+        _levelDetailsSO = GameManager.Instance.currentLevelDetails; // берем уровень
         _startTimerSpawn = _levelDetailsSO.intervalEnemySpawner; // устанавливаем стартовое врем€
         _timerSpawn = _startTimerSpawn; // устаналиваем атймер спавна
         _currentEnemyInScene = 0; // на сцене противников 0
         _amountEnemySpawn = 0; // всего заспавнилось 0
-        testDeathEnemy = 0; // тестовое, сколько на уровне убил врагов
+        amountDeathEnemy = 0; // тестовое, сколько на уровне убил врагов
     }
 
     /// <summary>
@@ -109,14 +107,13 @@ public class EnemySpawner : Singleton<EnemySpawner>
     public void DecrementEnemyInScene()
     {
         _currentEnemyInScene--;
-        testDeathEnemy++; // TEST!
+        amountDeathEnemy++; // TEST!
         if (_currentEnemyInScene <= 0) _currentEnemyInScene = 0;
     }
 
     /// <summary>
     /// ¬озвращает число врагов, которое еще должно заспавнитьс€
     /// </summary>
-    /// <returns></returns>
     public int GetRemainsToSpawnEnemy()
     {
         return _levelDetailsSO.amountEnemyInLevel - _amountEnemySpawn;

@@ -5,12 +5,8 @@ using UnityEngine;
 public class SoundEffectManager : Singleton<SoundEffectManager>
 {
     [SerializeField] private GameObject soundPrefab;
-    [SerializeField] private float _soundsVolume = 2;
+    [SerializeField] private float _soundsVolume = 8;
 
-    /// <summary>
-    /// Play the sound effect
-    /// </summary>
-    /// 
 
     private void Start()
     {
@@ -37,7 +33,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
 
 
     /// <summary>
-    /// Disable sound effect object after it has played thus returning it to the object pool
+    /// Отключение звука
     /// </summary>
     private IEnumerator DisableSound(SoundEffect sound, float soundDuration)
     {
@@ -46,7 +42,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
     }
 
     /// <summary>
-    /// Устанвока громкости
+    /// Установка громкости звуков
     /// </summary>
     public void SetSoundVolume(float soundsVolume)
     {
@@ -59,19 +55,8 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
         }
         else
         {
-            GameManager.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundsVolume", LinearToDecibels(soundsVolume));
+            GameManager.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundsVolume", Helper.LinearToDecibels(soundsVolume));
         }
-    }
-
-    /// <summary>
-    /// переводит в децибелы
-    /// </summary>
-    public static float LinearToDecibels(float linear)
-    {
-        float linearScaleRange = 20f;
-
-        // formula to convert from the linear scale to the logarithmic decibel scale
-        return Mathf.Log10((float)linear / linearScaleRange) * 20f;
     }
 
 }

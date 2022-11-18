@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
-    [SerializeField] private float _musicVolume = 0;
+    [SerializeField] private float _musicVolume = 1;
     private AudioSource _musicAudioSource = null;
     private AudioClip _currentAudioClip = null;
 
@@ -25,9 +23,9 @@ public class MusicManager : Singleton<MusicManager>
     /// </summary>
     private void SetAudioClipByLevel()
     {
-        if (GameManager.Instance.currentLevel.audioClip != null)
+        if (GameManager.Instance.currentLevelDetails.audioClip != null)
         {
-            _currentAudioClip = GameManager.Instance.currentLevel.audioClip;
+            _currentAudioClip = GameManager.Instance.currentLevelDetails.audioClip;
             _musicAudioSource.clip = _currentAudioClip;
             _musicAudioSource.Play();
             SetMusicVolume(_musicVolume);
@@ -53,17 +51,9 @@ public class MusicManager : Singleton<MusicManager>
         }
         else
         {
-            GameManager.Instance.musicMasterMixerGroup.audioMixer.SetFloat("musicVolume", LinearToDecibels(_musicVolume));
+            GameManager.Instance.musicMasterMixerGroup.audioMixer.SetFloat("musicVolume", Helper.LinearToDecibels(_musicVolume));
         }
 
-    }
-
-    public static float LinearToDecibels(float linear)
-    {
-        float linearScaleRange = 20f;
-
-        // formula to convert from the linear scale to the logarithmic decibel scale
-        return Mathf.Log10((float)linear / linearScaleRange) * 20f;
     }
 
 }

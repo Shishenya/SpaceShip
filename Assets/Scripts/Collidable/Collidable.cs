@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collidable : MonoBehaviour
@@ -19,11 +17,6 @@ public class Collidable : MonoBehaviour
         if (gameObject.GetComponent<Enemy>()!=null)
         {
             SwitchCollisionEnemy(collision);
-        }
-
-        if (gameObject.GetComponent<Player>()!=null)
-        {
-            SwitchCollisionPlayer(collision);
         }
 
     }
@@ -48,25 +41,14 @@ public class Collidable : MonoBehaviour
         // Столкнулся с игроком
         if (collision.gameObject == GameManager.Instance.GetPlayerShip())
         {
-            GameManager.Instance.GetPlayerShip().GetComponent<Ship>().changeHealthEvent.CallChangeHealthEvent(1); // наносим игроку урон
-            _ship.changeHealthEvent.CallChangeHealthEvent(2); // наносим урон кораблю
+            GameManager.Instance.GetPlayerShip().GetComponent<Ship>().changeHealthEvent.CallChangeHealthEvent(5); // наносим игроку урон
+            _ship.changeHealthEvent.CallChangeHealthEvent(5); // наносим урон кораблю
             _ship.deathEvent.CallOnDeathEvent(); // Событие смерти корабля при столкновении
         }
 
 
     }
 
-    /// <summary>
-    /// Реакци на столкновения игрока
-    /// </summary>
-    private void SwitchCollisionPlayer(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<Bonus>()!=null)
-        {
-            // прибавляем здоровье
-            _ship.changeHealthEvent.CallChangeHealthEvent(-collision.gameObject.GetComponent<Bonus>().bonusDetails.addHealthBonus);
-            collision.gameObject.SetActive(false); // деактивируем бонус
-        }
-    }
+
 
 }

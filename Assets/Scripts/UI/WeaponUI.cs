@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class WeaponUI : MonoBehaviour
 {
-    [SerializeField ]private TextMeshProUGUI weaponTMP;
+    [SerializeField] private TextMeshProUGUI weaponTMP;
     private WeaponDetailsSO _weaponDetails;
     private Weapon _weapon;
     private int _currentAmountAmmo;
@@ -48,7 +47,7 @@ public class WeaponUI : MonoBehaviour
         weaponTMP.text = textWeapon;
     }
 
-    private void FireWeaponEvent_UpdateUI(FireWeaponEvent fireWeaponEvent, FireWeaponEventArgs fireWeaponEventArgs)
+    private void FireWeaponEvent_UpdateUI(FireWeaponEventArgs fireWeaponEventArgs)
     {
         InitWeaponUI();
     }

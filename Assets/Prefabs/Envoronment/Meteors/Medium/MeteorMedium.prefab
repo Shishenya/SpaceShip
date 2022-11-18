@@ -11,8 +11,16 @@ PrefabInstance:
       propertyPath: deathEffectGO
       value: 
       objectReference: {fileID: 5891102798220615780, guid: beaec07908dc08c4391ed727074b6381, type: 3}
+    - target: {fileID: -6429034550418144217, guid: 24001ccc68d6566469187b019136590a, type: 3}
+      propertyPath: _deathEffectGO
+      value: 
+      objectReference: {fileID: 5891102798220615780, guid: beaec07908dc08c4391ed727074b6381, type: 3}
     - target: {fileID: 2342263952451053415, guid: 24001ccc68d6566469187b019136590a, type: 3}
       propertyPath: healthDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f970927a27f07c41a3dc0c8d06a6484, type: 2}
+    - target: {fileID: 2342263952451053415, guid: 24001ccc68d6566469187b019136590a, type: 3}
+      propertyPath: _healthDetails
       value: 
       objectReference: {fileID: 11400000, guid: 7f970927a27f07c41a3dc0c8d06a6484, type: 2}
     - target: {fileID: 4667613959595331160, guid: 24001ccc68d6566469187b019136590a, type: 3}

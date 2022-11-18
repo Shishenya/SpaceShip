@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -7,12 +5,12 @@ using System;
 public class MovementEvent : MonoBehaviour
 {
     // Ивент передвижения корабля
-    public event Action<MovementEvent, MovementArgs> OnMove;
+    public event Action<MovementArgs> OnMove;
 
     // Прозвон ивента
     public void CallMoveEvent(Vector2 moveDirection, float speed)
     {
-        OnMove.Invoke(this, new MovementArgs() { moveDirection  = moveDirection , speed  = speed });
+        OnMove.Invoke(new MovementArgs() { moveDirection  = moveDirection , speed  = speed });
     }
 
 }

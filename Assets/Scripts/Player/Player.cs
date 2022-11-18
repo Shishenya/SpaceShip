@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDeadable
@@ -21,7 +19,7 @@ public class Player : MonoBehaviour, IDeadable
         _playerShip = GetComponent<Ship>();
     }
 
-    public void DeathEvent_OnDeath(DeathEventArgs deathEventArgs)
+    public void DeathEvent_OnDeath()
     {
         Death();
     }

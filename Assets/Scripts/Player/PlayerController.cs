@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Ship _ship;
-    private bool _isEnabledController = false;
+    private bool _isEnabledController = true;
 
     private void Awake()
     {
@@ -19,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Делаем, если нет паузы
-        if (!GameManager.Instance.IsPause)
+        if (_isEnabledController)
         {
             MovementInput(); // Move player ship
             FireInput(); // Fire player ship

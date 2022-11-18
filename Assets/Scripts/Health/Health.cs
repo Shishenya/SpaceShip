@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ChangeHealthEvent))]
@@ -8,12 +6,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     private int _startHealth;
-    public int _currentHealth;
-
-    [HideInInspector] public ChangeHealthEvent changeHealthEvent;
+    private int _currentHealth;
     private DeathEvent _deathEvent;
 
-    [SerializeField] private HealthDetailsSO healthDetails;
+    [HideInInspector] public ChangeHealthEvent changeHealthEvent;
+    [SerializeField] private HealthDetailsSO _healthDetails;
 
     private void OnEnable()
     {
@@ -50,9 +47,9 @@ public class Health : MonoBehaviour
     public void GetStartHealth()
     {
 
-        if (healthDetails!=null)
+        if (_healthDetails!=null)
         {
-            _startHealth = healthDetails.startHealth;
+            _startHealth = _healthDetails.startHealth;
         }
         else
         {
@@ -84,11 +81,11 @@ public class Health : MonoBehaviour
     /// <summary>
     /// Звук уничтожения
     /// </summary>
-    private void SoundEffectDeath(DeathEventArgs deathEventArgs)
+    private void SoundEffectDeath()
     {
-        if (healthDetails.soundDestroy!=null)
+        if (_healthDetails.soundDestroy!=null)
         {
-            SoundEffectManager.Instance.PlaySoundEffect(healthDetails.soundDestroy);
+            SoundEffectManager.Instance.PlaySoundEffect(_healthDetails.soundDestroy);
         }
     }
 

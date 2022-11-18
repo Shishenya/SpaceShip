@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(FireWeaponEvent))]
 [DisallowMultipleComponent]
 public class FireWeapon : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody2D;
     private FireWeaponEvent _fireWeaponEvent;
     private Ship _ship;
 
@@ -29,7 +26,7 @@ public class FireWeapon : MonoBehaviour
     /// <summary>
     /// Выстрел из оружия
     /// </summary>
-    private void FireWeaponEvent_OnFireWeapon(FireWeaponEvent fireWeaponEvent, FireWeaponEventArgs fireWeaponEventArgs)
+    private void FireWeaponEvent_OnFireWeapon(FireWeaponEventArgs fireWeaponEventArgs)
     {
         FireWeaponShip(fireWeaponEventArgs.weaponDetails, fireWeaponEventArgs.direction);
     }

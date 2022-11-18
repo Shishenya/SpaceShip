@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(DeathEvent))]
@@ -8,7 +6,7 @@ using UnityEngine;
 public class Meteor : MonoBehaviour, IDeadable
 {
 
-    [SerializeField] private GameObject deathEffectGO;
+    [SerializeField] private GameObject _deathEffectGO;
     private DeathEvent _deathEvent;
     private Health _health;
 
@@ -31,7 +29,7 @@ public class Meteor : MonoBehaviour, IDeadable
     /// <summary>
     /// Handle
     /// </summary>
-    public void DeathEvent_OnDeath(DeathEventArgs deathEventArgs)
+    public void DeathEvent_OnDeath()
     {
         Death();
     }
@@ -46,9 +44,12 @@ public class Meteor : MonoBehaviour, IDeadable
         gameObject.SetActive(false); // отключаем метеорит
     }
 
+    /// <summary>
+    /// Эффект смерти
+    /// </summary>
     private void DeathEffect()
     {
-        GameObject effect = PoolManager.Instance.GetFromThePool(deathEffectGO);
+        GameObject effect = PoolManager.Instance.GetFromThePool(_deathEffectGO);
         effect.transform.position = transform.position;
         effect.SetActive(true);
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -32,7 +30,7 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Движение
     /// </summary>
-    private void MovementEvent_OnMove(MovementEvent movementEvent, MovementArgs movementArgs)
+    private void MovementEvent_OnMove(MovementArgs movementArgs)
     {
         Move(movementArgs.moveDirection, movementArgs.speed); 
     }

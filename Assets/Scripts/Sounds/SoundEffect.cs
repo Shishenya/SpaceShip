@@ -4,24 +4,24 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class SoundEffect : MonoBehaviour
 {
-    private AudioSource audioSource;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
-        if (audioSource.clip != null)
+        if (_audioSource.clip != null)
         {
-            audioSource.Play();
+            _audioSource.Play();
         }
     }
 
     private void OnDisable()
     {
-        audioSource.Stop();
+        _audioSource.Stop();
     }
 
     /// <summary>
@@ -29,9 +29,9 @@ public class SoundEffect : MonoBehaviour
     /// </summary>
     public void SetSound(SoundEffectSO soundEffect)
     {
-        audioSource.pitch = Random.Range(soundEffect.soundEffectPitchRandomVariationMin, soundEffect.soundEffectPitchRandomVariationMax);
-        audioSource.volume = soundEffect.soundEffectVolume;
-        audioSource.clip = soundEffect.soundEffectClip;
+        _audioSource.pitch = Random.Range(soundEffect.soundEffectPitchRandomVariationMin, soundEffect.soundEffectPitchRandomVariationMax);
+        _audioSource.volume = soundEffect.soundEffectVolume;
+        _audioSource.clip = soundEffect.soundEffectClip;
     }
 
 }

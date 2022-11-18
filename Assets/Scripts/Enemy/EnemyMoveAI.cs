@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Ship))]
@@ -138,7 +137,6 @@ public class EnemyMoveAI : MonoBehaviour
     /// <summary>
     /// Случайное значение вектора Y для корабля противника со сменой в 2 секунды
     /// </summary>
-    /// <returns></returns>
     private IEnumerator SetRandomVericalMoveRoutine()
     {
         _verticalMovement = Random.Range(-1f, 1f);
